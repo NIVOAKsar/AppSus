@@ -4,9 +4,9 @@ export default {
     template: `
         <section class="email-filter flex justify-center">
             <!-- <div class="filters-container">  -->
-            <div class="search-container">
-                <button class="search" type="submit"><i class="fa fa-search"></i></button>
-                <input class="search" type="text" placeholder="Search mail"
+            <div class="email-search-container">
+                <button class="email-search" type="submit"><i class="fa fa-search"></i></button>
+                <input class="email-search" type="text" placeholder="Search mail"
                 @keyup="emitFilter" v-model.trim="filterBy.txt" />
             </div>
 

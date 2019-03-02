@@ -5,6 +5,8 @@ export default {
     addNote,
     removeNote,
     getNotes,
+    clearAllNotes,
+    setBgColor
 }
 
 const NOTES_KEY = 'NOTES';
@@ -34,7 +36,8 @@ function _createNote(content, type) {
         type: type,
         timestamp: Date.now(),
         createdAt: new Date().toLocaleDateString(),
-        content: content
+        content: content,
+        bgColor: '#e7df97'
     }
 }
 
@@ -65,6 +68,19 @@ function getNoteIdxById(noteId) {
 
 function getNotes() {
     return gNotes;
+}
+
+function clearAllNotes() {
+    gNotes = [];
+    gPinnedNotes = [];
+    utilService.saveToStorage(NOTES_KEY, gNotes);
+    utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
+}
+
+function setBgColor(color, noteId) {
+    let note = getNoteById(noteId);
+    note.bgColor = color;
+    utilService.saveToStorage(NOTES_KEY, gNotes);
 }
 
 

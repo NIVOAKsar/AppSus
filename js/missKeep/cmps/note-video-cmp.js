@@ -21,7 +21,10 @@ export default {
 
           <img src="/img/keep/pin.png">
           <img src="/img/keep/check.png">
-          <img src="/img/keep/colors.png">
+          <div>
+            <input @change="onChangeBgColor" type="color">
+            <!-- <img src="/img/keep/colors.png"> -->
+          </div>
           <img src="/img/keep/edit.png">
           <img @click="onCopy" src="/img/keep/copy.png">
           <img @click="onRemoveClick" src="/img/keep/trash.png">
@@ -37,6 +40,9 @@ export default {
         },
         onCopy() {
             utilService.copyStringToClipboard(this.note.content)
+        },
+        onChangeBgColor(ev) {
+            this.$emit('changeBgColor', ev.target.value, this.note.id);
         }
     },
 }

@@ -18,10 +18,6 @@
     flex-direction: row;
 }
 
-.center {
-    justify-content: center;
-}
-
 .space-between {
     justify-content: space-between;
 }
