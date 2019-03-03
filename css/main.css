@@ -195,10 +195,6 @@ body {
     align-items: center;
 }
 
-.about-title {
-    font-family: concert-one-reg;
-}
-
 .about-container {
     padding: 10px;
 }
@@ -692,6 +688,10 @@ body {
     .home-links-container a {
         opacity: 1;
         font-size: 1.3rem;
+    }
+    /************************************* About us **************************************/
+    .about-container {
+        flex-direction: column;
     }
     /*************************************** email ***************************************/
     .hamburger {
