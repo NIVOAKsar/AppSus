@@ -33,8 +33,7 @@ export default {
 
     created() {
         this.emails = emailService.getEmails();
-
-        // this.emails = emailService.getEmails();
+        // console.log('register');
         // ebusService.$on('removeEmailBus', email => {
         //     console.log('fireed');
 

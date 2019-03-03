@@ -46,6 +46,11 @@ function updateNote(noteId, content) {
     note.content = content;
     utilService.saveToStorage(NOTES_KEY, gNotes);
 }
+function setNoteColor(color, noteId) {
+    let note = getNoteById(noteId);
+    note.bgColor = color;
+    utilService.saveToStorage(NOTES_KEY, gNotes);
+}
 function getNoteById(noteId) {
     return gNotes.find(note => note.id === noteId);
 }
@@ -75,6 +80,11 @@ function updatePinnedNote(noteId, content) {
     note.content = content;
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
+function setPinnedNoteColor(color, noteId) {
+    let note = getPinnedNoteById(noteId);
+    note.bgColor = color;
+    utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
+}
 function removePinnedNote(noteId) {
     let idx = getPinnedNoteIdxById(noteId);
     gPinnedNotes.splice(idx, 1);
@@ -101,25 +111,13 @@ function clearAllNotes() {
     utilService.saveToStorage(NOTES_KEY, gNotes);
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
-function setBgColor(color, noteId) {
-    let note = getNoteById(noteId);
-    note.bgColor = color;
-    utilService.saveToStorage(NOTES_KEY, gNotes);
-}
+
 function _convertContent(content, type) {
     switch (type) {
-        case 'note-todos':
-            return content.split(',');
-            break;
-        case 'note-img':
-            return content;
-            break;
-        case 'note-video':
-            return content;
-            break;
-        default:
-            return content;
-            break;
+        case 'note-todos': return content.split(','); break;
+        case 'note-img': return content; break;
+        case 'note-video': return utilService.getYoutubeUrlEmbed(content); break;
+        default: return content; break;
     }
 }
 
@@ -127,12 +125,13 @@ export default {
     addNote,
     removeNote,
     updateNote,
+    setNoteColor,
     getNotes,
     removePinnedNote,
     pinNote,
     unpinNote,
     updatePinnedNote,
+    setPinnedNoteColor,
     getPinnedNotes,
     clearAllNotes,
-    setBgColor
 }
