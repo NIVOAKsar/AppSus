@@ -1,4 +1,6 @@
 import navBarService from '/js/service/nav-bar-service.js';
+import ebusService from '/js/service/eventbus-service.js';
+
 
 const homeTitleCmp = {
     props: [],
@@ -110,8 +112,6 @@ export default {
     data() {
         return {
             isNavOpen: false,
-            isMisterEmail: false,
-            isHome: false,
             currType: 'home-title',
         }
     },
@@ -121,12 +121,17 @@ export default {
         },
         onClick(type) {
             this.toggleNavBar();
+            this.setCurrType(type);
+
+        },
+        setCurrType(type) {
             navBarService.updateTitle(type);
             this.currType = navBarService.getCurrTitle();
         }
     },
     created() {
         this.currType = navBarService.getCurrTitle();
+        ebusService.$on('setCurrType', type => this.setCurrType(type));
     },
 
     components: {

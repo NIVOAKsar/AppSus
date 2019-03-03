@@ -64,19 +64,18 @@ export default {
             </li>
         </ul>
         <div class="edit-nav grid">
-            <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
-            <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
+            <img title="Pin" v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
+            <img title="un-pin" v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
             <div>
                 <label class="label-pic-color">
-                    <img src="/img/keep/colors.png">
+                    <img title="Color" src="/img/keep/colors.png">
                     <input @change="onPaintIconClick" type="color">
                 </label>
-                <!-- <img class="img-color" src="/img/keep/colors.png"> -->
             </div>
-            <img @click="onSubmitIconClick" src="/img/keep/check.png"/>
-            <img @click="onEditIconClick" src="/img/keep/edit.png"/>
-            <img @click="onCopyIconClick" src="/img/keep/copy.png"/>
-            <img @click="onTrashIconClick" src="/img/keep/trash.png"/>
+            <img title="Save" @click="onSubmitIconClick" src="/img/keep/check.png"/>
+            <img title="Edit" @click="onEditIconClick" src="/img/keep/edit.png"/>
+            <img title="Copy" @click="onCopyIconClick" src="/img/keep/copy.png"/>
+            <img title="Remove" @click="onTrashIconClick" src="/img/keep/trash.png"/>
 
         </div> 
 

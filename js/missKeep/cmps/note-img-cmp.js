@@ -13,7 +13,6 @@ export default {
                 <label class="label-pic-color"><img src="/img/keep/colors.png">
                 <input @change="onChangeBgColor" type="color">
                 </label>
-                <!-- <img class="img-color" src="/img/keep/colors.png"> -->
             </div>
             <img src="/img/keep/check.png"/>
             <img src="/img/keep/edit.png"/>

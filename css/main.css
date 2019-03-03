@@ -29,6 +29,18 @@ body {
     margin-top: 10px
 }
 
+.keep-sus {
+    flex: 1;
+}
+
+.home-page {
+    flex: 1;
+}
+
+.about-us {
+    flex: 1;
+}
+
 
 /******************** NAV & HEADER **********************/
 
@@ -52,7 +64,8 @@ body {
 }
 
 .links-nav-container {
-    background-color: rgb(215, 216, 212);
+    background-color: wheat;
+    /* background-color: rgb(215, 216, 212); */
     box-shadow: 1px 1px 7px rgb(122, 120, 120);
     position: absolute;
     top: 11%;
@@ -123,6 +136,40 @@ body {
     background-color: rgb(200, 199, 199);
 }
 
+.footer-cmp h1 {
+    font-size: 16px;
+}
+
+
+/*************************************** Home page ***************************************/
+
+
+/*************************************** email ***************************************/
+
+.home-links-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    margin-top: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* grid-template-columns: repeat(3, minmax(150px, 1fr)); */
+    /* grid-template-rows: repeat(auto-fit, minmax(30px, 1fr)); */
+    /* grid-auto-rows: minmax(100px, auto); */
+    /* grid-template-rows: 100px 100px; */
+}
+
+.home-links-container a {
+    text-decoration: none;
+    color: black;
+    /* text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0, 0, 0, 0.15), 0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1); */
+    font-size: 2rem;
+}
+
+.home-links-container img {
+    width: 60px;
+    height: 60px;
+}
+
 
 /*************************************** email ***************************************/
 
@@ -154,7 +201,17 @@ body {
     font-family: lato-reg;
     font-size: 1.1rem;
     padding: 10px;
+}
+
+.email-nav-links {
+    padding: 5px;
+    height: 100%;
     background-color: rgb(243, 239, 239);
+    border: 1px solid rgb(187, 183, 183);
+}
+
+.email-main {
+    flex: 1;
 }
 
 .email-nav a {
@@ -165,14 +222,15 @@ body {
     padding: 5px;
     margin-bottom: 5px;
     transition: background-color 0.3s ease;
+    /* border-bottom: 1px solid #2e2e2e; */
 }
 
 .email-nav a:hover {
-    background-color: rgb(243, 213, 165);
+    background-color: rgb(215, 226, 240);
 }
 
 .email-nav a:focus {
-    background-color: rgb(245, 172, 55);
+    background-color: rgb(137, 174, 223);
 }
 
 .email-inbox,
@@ -183,20 +241,21 @@ body {
 
 .email {
     cursor: pointer;
-    /* padding: 10px; */
     background-color: rgb(248, 244, 244);
     border: 1px solid rgb(187, 183, 183);
 }
 
 .isUnread {
-    font-weight: bold;
+    background-color: white;
+    font-weight: bolder;
 }
 
 .num-of-unread {
     color: white;
+    border: 1px solid black;
     background-color: red;
     border-radius: 50%;
-    width: 20px;
+    width: 24px;
 }
 
 .inbox-mails-container {
@@ -271,16 +330,24 @@ body {
 
 .add-email {
     cursor: pointer;
-    font-size: 1.1rem;
+    /* background: linear-gradient(to right, rgb(60, 120, 197), #86a8e7, #ccecea); */
+    font-size: 1.2rem;
+    font-weight: bold;
     padding: 10px;
     margin-bottom: 5px;
+    box-shadow: 1px 1px 4px black;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    transition: transform .2s;
+    transition: transform .3s, background-color 0.5s;
+}
+
+.add-email:focus {
+    box-shadow: inset 1px 1px 4px black;
 }
 
 .add-email:hover {
     transform: scale(1.05);
+    background-color: rgb(241, 221, 106);
 }
 
 .email-send {
@@ -379,10 +446,6 @@ body {
 
 /*************************************** keep ***************************************/
 
-.keep-sus {
-    flex: 1;
-}
-
 .select-menu {
     width: 0;
     height: 0;
@@ -460,6 +523,9 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* grid-auto-rows: minmax(200px, auto); */
     /* grid-template-rows: 100px 100px; */
+    /* grid-template-columns: 60px 60px 60px 60px 60px; */
+    /* grid-template-rows: 100px 100px; */
+    /* grid-auto-flow: row; */
     padding: 0;
     max-width: 980px;
     margin: 0 auto;
@@ -515,6 +581,10 @@ body {
 .edit-nav div input {
     position: absolute;
     visibility: hidden;
+    cursor: pointer;
+}
+
+.delete-todo:hover {
     cursor: pointer;
 }
 
@@ -636,9 +706,11 @@ body {
         box-shadow: 1px 1px 7px rgb(122, 120, 120);
         position: fixed;
         padding: 15px;
-        min-width: 150px;
+        font-weight: bold;
+        min-width: 160px;
         left: 0;
         top: 9.2%;
+        z-index: 1;
         transform: translate(-300px, 0);
         transition: transform 0.3s ease;
     }
@@ -682,81 +754,6 @@ body {
         margin: 0;
         padding: 0;
     }
-    /*************************************** Hambugrger ***************************************/
-    #nav-icon2 {
-        width: 17%;
-        /* height: 10px; */
-        /* margin: 0; */
-        /* padding: 0; */
-        position: relative;
-        transform: rotate(0deg);
-        transition: .5s ease-in-out;
-        cursor: pointer;
-        /* margin: 10px; */
-    }
-    #nav-icon2 span {
-        display: block;
-        position: absolute;
-        height: 9px;
-        width: 50%;
-        background: #2e2e2e;
-        opacity: 1;
-        transform: rotate(0deg);
-        transition: .25s ease-in-out;
-        margin: 7px 0 0 5px;
-    }
-    #nav-icon2 span:nth-child(even) {
-        left: 50%;
-        border-radius: 0 9px 9px 0;
-    }
-    #nav-icon2 span:nth-child(odd) {
-        left: 0px;
-        border-radius: 9px 0 0 9px;
-    }
-    #nav-icon2 span:nth-child(1),
-    #nav-icon2 span:nth-child(2) {
-        top: 0px;
-    }
-    #nav-icon2 span:nth-child(3),
-    #nav-icon2 span:nth-child(4) {
-        top: 18px;
-    }
-    #nav-icon2 span:nth-child(5),
-    #nav-icon2 span:nth-child(6) {
-        top: 36px;
-    }
-    #nav-icon2.open span:nth-child(1),
-    #nav-icon2.open span:nth-child(6) {
-        transform: rotate(45deg);
-    }
-    #nav-icon2.open span:nth-child(2),
-    #nav-icon2.open span:nth-child(5) {
-        transform: rotate(-45deg);
-    }
-    #nav-icon2.open span:nth-child(1) {
-        left: 5px;
-        top: 7px;
-    }
-    #nav-icon2.open span:nth-child(2) {
-        left: calc(50% - 5px);
-        top: 7px;
-    }
-    #nav-icon2.open span:nth-child(3) {
-        left: -50%;
-        opacity: 0;
-    }
-    #nav-icon2.open span:nth-child(4) {
-        left: 100%;
-        opacity: 0;
-    }
-    #nav-icon2.open span:nth-child(5) {
-        left: 5px;
-        top: 29px;
-    }
-    #nav-icon2.open span:nth-child(6) {
-        left: calc(50% - 5px);
-        top: 29px;
-    }
     /*************************************** keep ***************************************/
     .choose-container {
         width: auto;
@@ -764,8 +761,8 @@ body {
     .select-menu {
         visibility: visible;
         cursor: pointer;
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         align-self: center;
     }
     .icons-container {
@@ -778,9 +775,7 @@ body {
         cursor: pointer;
         opacity: 0.5;
     }
-
-
-.icons-container-mobile {
+    .icons-container-mobile {
         display: block;
     }
     /* .icons-container-mobile {
@@ -794,7 +789,5 @@ body {
     } */
 }
 
+
 /***************** NIV ADDED *****************/
-.delete-todo:hover{
-    cursor: pointer;
-}
