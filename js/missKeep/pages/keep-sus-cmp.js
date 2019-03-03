@@ -12,7 +12,10 @@ export default {
 
                 <div class="keep-search-container">
                     <button class="keep-search" type="submit"><i class="fa fa-search"></i></button>
-                    <input class="keep-search" type="text" placeholder="Search for a note..."/>
+                    <input class="keep-search" type="text"
+                    v-model.trim="filterByTxt"
+                    @keyup="onFilter"
+                    placeholder="Search for a note..."/>
                 </div>
 
                 <div class="choose-container flex space-around">
@@ -72,7 +75,8 @@ export default {
             currType: 'note-txt',
             currIcon: '',
             currIconMobile: '',
-            show: false
+            show: false,
+            filterByTxt: ''
         }
     },
     mounted() {
@@ -83,6 +87,12 @@ export default {
         initIcon() {
             this.currIconMobile = this.$refs.txtMobile;
             this.currIconMobile.style.opacity = 1;
+        },
+        onFilter() {
+            let filtered = noteService.getNotesFiltered(this.filterByTxt);
+            this.notes = filtered;
+            let pinnedFiltered = noteService.getPinNotesFiltered(this.filterByTxt);
+            this.pinnedNotes = pinnedFiltered;
         },
 
         /*********************** NOTE ***********************/

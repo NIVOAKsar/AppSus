@@ -192,6 +192,7 @@ body {
 .sort {
     font-size: 1.1rem;
     height: 100%;
+    outline: 0;
 }
 
 .email-search {
@@ -341,6 +342,7 @@ body {
 
 .add-email {
     cursor: pointer;
+    outline: 0;
     /* background: linear-gradient(to right, rgb(60, 120, 197), #86a8e7, #ccecea); */
     font-size: 1.2rem;
     font-weight: bold;
@@ -473,6 +475,7 @@ body {
 
 .choose-container input {
     border: none;
+    outline: 0;
 }
 
 .icons-container {
@@ -528,6 +531,7 @@ body {
 
 .keep-search {
     border: none;
+    outline: 0;
 }
 
 .notes-container {

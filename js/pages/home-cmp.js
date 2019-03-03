@@ -38,7 +38,7 @@ export default {
                     </div>
                 </router-link>
 
-                <router-link to="/keep-sus">
+                <router-link to="/">
                     <div @click="onClick('books-title')" class="flex flex-col justify-center">
                         <span><img src="/img/books.png" alt=""></span>
                         Books

@@ -6,7 +6,13 @@ import keepSus from '/js/missKeep/pages/keep-sus-cmp.js';
 import emailSus from '/js/misterEmail/pages/email-sus-cmp.js';
 import emailInbox from '/js/misterEmail/cmps/email-inbox-cmp.js';
 import emailSent from '/js/misterEmail/cmps/email-sent.cmp.js';
+import emailTrash from '/js/misterEmail/cmps/email-trash-cmp.js';
+// import emailStarred from '/js/misterEmail/cmps/email-starred.cmp.js';
+
 import emailSentDetails from '/js/misterEmail/cmps/email-sent-details-cmp.js';
+import emailTrashDetails from '/js/misterEmail/cmps/email-trash-details-cmp.js';
+// import emailStarredDetails from '/js/misterEmail/cmps/email-starred-details-cmp.js';
+
 import emailDetails from '/js/misterEmail/cmps/email-details-cmp.js';
 import emailSend from '/js/misterEmail/cmps/email-send-cmp.js';
 
@@ -31,8 +37,13 @@ const routes = [
                 // }]
             },
             { path: 'email-sent', component: emailSent },
+            { path: 'email-trash', component: emailTrash },
+            // { path: 'email-starred', component: emailStarred },
             { path: 'email-details/:id', component: emailDetails },
             { path: 'email-sent-details/:id', component: emailSentDetails },
+            { path: 'email-trash-details/:id', component: emailTrashDetails },
+            // { path: 'email-sent-details/:id', component: emailStarredDetails },
+
             { path: 'email-send', component: emailSend }
         ]
     },

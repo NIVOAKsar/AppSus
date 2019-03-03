@@ -1,14 +1,15 @@
 import emailService from '../service/email-service.js';
 import emailFilter from '../cmps/email-filter-cmp.js';
-import emailSentPreview from '../cmps/email-sent-preview-cmp.js';
-import emailSentDetails from '../cmps/email-sent-details-cmp.js';
+import emailTrashPreview from '../cmps/email-trash-preview-cmp.js';
+import emailTrashDetails from '../cmps/email-trash-details-cmp.js';
 import ebusService from '/js/service/eventbus-service.js';
 
 
 export default {
     template: `
-        <section class="email-sent">
-            <email-filter @on-filtered="onFiltered"></email-filter>
+        <section class="email-trash">
+
+        <email-filter @on-filtered="onFiltered"></email-filter>
 
             <ul class="inbox-mails-container flex col-reverse">
                 <li class="email clean-list" v-for="email in emails" :key="email.id">
@@ -21,7 +22,7 @@ export default {
                     <router-view></router-view>
                 </li>
             </ul>
-            
+
         </section>
 
         `,
@@ -50,8 +51,8 @@ export default {
     },
     components: {
         emailFilter,
-        emailSentPreview,
-        emailSentDetails,
+        emailTrashPreview,
+        emailTrashDetails,
     },
 
 }
