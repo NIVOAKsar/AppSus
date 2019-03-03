@@ -50,7 +50,7 @@ export default {
             <h1>Pinned Notes:</h1>
             <ul class="notes-container clean-list grid">
                 <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in pinnedNotes">
-                    <component @unpinNote="onUnpinNote" @changeBgColor="changeBgColor" @removeNote="onRemovePinnedNote" :note="note" :isPinned="true" :is="note.type"></component> 
+                    <component @updateNote="onUpdatePinnedNote" @unpinNote="onUnpinNote" @updateNoteColor="onUpdatePinnedNoteColor" @removeNote="onRemovePinnedNote" :note="note" :isPinned="true" :is="note.type"></component> 
                 </li>
             </ul>
 
@@ -59,7 +59,7 @@ export default {
             <h1>Regular Notes:</h1>
             <ul class="notes-container clean-list grid">
                 <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in notes">
-                    <component @updateNote="onUpdateNote" @pinNote="onPinNote" @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :isPinned="false" :is="note.type"></component> 
+                    <component @updateNote="onUpdateNote" @pinNote="onPinNote" @updateNoteColor="onUpdateNoteColor" @removeNote="onRemoveNote" :note="note" :isPinned="false" :is="note.type"></component> 
                 </li>
             </ul>
             
@@ -100,15 +100,14 @@ export default {
             noteService.updateNote(noteId, content);
             this.notes = noteService.getNotes();
         },
-
+        onUpdateNoteColor(color, noteId) {
+            noteService.setNoteColor(color, noteId);
+            this.notes = noteService.getNotes();
+        },
         onRemoveNote(noteId) {
             noteService.removeNote(noteId);
             this.notes = noteService.getNotes();
             console.log(this.notes);
-        },
-        changeBgColor(color, noteId) {
-            noteService.setBgColor(color, noteId);
-            this.notes = noteService.getNotes();
         },
 
         /*********************** PINNED NOTE ***********************/
@@ -117,8 +116,13 @@ export default {
             this.notes = noteService.getNotes();
             this.pinnedNotes = noteService.getPinnedNotes();
         },
-        onUpdatePinNote() {
-
+        onUpdatePinnedNote(noteId, content) {
+            noteService.updatePinnedNote(noteId, content);
+            this.pinnedNotes = noteService.getPinnedNotes();
+        },
+        onUpdatePinnedNoteColor(color, noteId) {
+            noteService.setPinnedNoteColor(color, noteId);
+            this.pinnedNotes = noteService.getPinnedNotes();
         },
         onRemovePinnedNote(noteId) {
             noteService.removePinnedNote(noteId);

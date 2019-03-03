@@ -39,7 +39,7 @@ export default {
             utilService.copyStringToClipboard(this.note.content)
         },
         onPaintIconClick(ev) {
-            this.$emit('changeBgColor', ev.target.value, this.note.id);
+            this.$emit('updateNoteColor', ev.target.value, this.note.id);
         },
         onPinIconClick() {
             this.$emit('pinNote', this.note.id);

@@ -7,6 +7,7 @@ export default {
     sortEmailByDate,
     sortEmailBySubject,
     copyStringToClipboard,
+    getYoutubeUrlEmbed,
 
 }
 
@@ -72,41 +73,6 @@ function sortEmailBySubject(emails) {
 }
 
 
-/* HTTP / AJAX Request & Response TEMPLATES */
-
-function getRequest() {
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === XMLHttpRequest.DONE &&
-            httpRequest.status === 200) {
-            //...
-        }
-    }
-    httpRequest.open("GET", 'https://yesno.wtf/api', true);
-    httpRequest.send();
-}
-function getRequestFetch() {
-    return fetch('https://yesno.wtf/api')
-        .then(res => res.json())
-        .catch(err => { return err; })
-        .finally(() => { console.log('Done Sending the AJAX Request') })
-}
-function getRequestPromise() {
-    return new Promise((resolve, reject) => {
-        resolve('value_resolve')
-        reject('value_error');
-    })
-        .then(res => { return res.data; })
-        .catch(err => { return err; })
-        .finally(() => { console.log('Done Sending the AJAX Request') })
-}
-function getRequestPromiseAxios() {
-    return axios.get('https://yesno.wtf/api')
-        .then(res => { return res.data; })
-        .catch(err => { return err; })
-        .finally(() => { console.log('Done Sending the AJAX Request') })
-}
-
 /* Page */
 function copyStringToClipboard(str) {
     var el = document.createElement('textarea');
@@ -117,6 +83,11 @@ function copyStringToClipboard(str) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+}
+
+function getYoutubeUrlEmbed(url) {
+    let id = url.substring(url.indexOf('=') + 1, url.length);
+    return `https://www.youtube.com/embed/${id}`
 }
 
 /* Count Down */
