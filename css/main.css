@@ -203,8 +203,19 @@ body {
 }
 
 .preview-title {
-    width: 10%;
+    width: 20%;
     margin: 10px;
+    text-align: left;
+}
+
+.niv {
+    width: 90%;
+}
+
+.user-preview {
+    width: 36px;
+    height: 36px;
+    margin: 1.5px;
 }
 
 .preview-text {
@@ -212,30 +223,24 @@ body {
 }
 
 .preview-subject {
-    width: 50%;
+    width: 80%;
     text-align: left;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     margin: 10px;
+}
+
+.preview-content {
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
 
 .email-preview {
     font-family: lato-reg;
 }
 
-.email-preview div span {
-    font-size: 0.8rem;
-    opacity: 0.6;
-}
-
 .email-preview button {
     margin: 10px;
     cursor: pointer;
-}
-
-.preview-btn-to-open {
-    /* width: 20%; */
 }
 
 .preview-btns button {
@@ -300,10 +305,7 @@ body {
     flex: 1;
     word-break: break-all;
     text-align: left;
-}
-
-.details-main {
-    margin-left: 40px;
+    margin: 0 40px 0 40px;
 }
 
 .email-details div button {
@@ -379,6 +381,12 @@ body {
     flex: 1;
 }
 
+.select-menu {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
 .choose-container {
     padding: 5px;
     box-shadow: 1px 1px 9px rgb(197, 196, 196);
@@ -391,6 +399,11 @@ body {
     border: none;
 }
 
+.icons-container {
+    align-self: center;
+    align-items: center;
+}
+
 .icons-container img {
     width: 30px;
     height: 30px;
@@ -400,12 +413,17 @@ body {
     transition: opacity .2s ease;
 }
 
+.icons-container-mobile {
+    display: none;
+}
+
 .keep-trash {
     opacity: 1;
     width: 30px;
     height: 30px;
     margin: 5px;
     cursor: pointer;
+    align-self: center;
     transition: transform .3s;
 }
 
@@ -424,7 +442,6 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
     border: 1px solid black;
-    /* padding: 5px; */
 }
 
 .keep-search-container .keep-search {
@@ -444,6 +461,7 @@ body {
     max-width: 980px;
     margin: 0 auto;
     align-items: flex-start;
+    justify-items: center;
 }
 
 .note {
@@ -521,7 +539,7 @@ body {
     .links-nav-container {
         display: flex;
         flex-direction: column;
-        height: 70%;
+        height: 75%;
         right: 3%;
     }
     .header-activity-grid {
@@ -566,8 +584,9 @@ body {
         flex-direction: column;
         padding: 10px;
     }
-    .preview-text {
+    .niv2 {
         flex-direction: column;
+        margin-left: 5px;
     }
     .preview-title {
         margin: 0;
@@ -576,14 +595,19 @@ body {
     }
     .preview-subject {
         margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
     .preview-time {
         margin: 0;
         align-self: flex-end;
+        margin: 10px;
     }
     .preview-btn-to-open {
         order: -1;
         align-self: flex-end;
+        position: absolute;
     }
     .email-preview button {
         margin: 0;
@@ -734,4 +758,24 @@ body {
         top: 29px;
     }
     /*************************************** keep ***************************************/
+    .choose-container {
+        width: auto;
+    }
+    .select-menu {
+        visibility: visible;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+    .icons-container {
+        display: flex;
+    }
+    .icons-container-mobile img {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+        cursor: pointer;
+        opacity: 0.5;
+    }
 }

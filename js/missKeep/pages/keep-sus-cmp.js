@@ -15,8 +15,12 @@ export default {
                     <input class="keep-search" type="text" placeholder="Search for a note..."/>
                 </div>
 
-                <div class="choose-container flex space-around">  
-                    <input v-model.trim="currInput" @keyup.enter="onSubmit" placeholder="What's on your mind..."/>   
+                <div class="choose-container flex space-around">
+
+                    <img class="select-menu" src="/img/keep/htree-dots.png">
+                    
+                    <input v-model.trim="currInput" @keyup.enter="onSubmit" placeholder="What's on your mind..."/>
+                    
                     <div class="icons-container">
                         <img @click="changeCurrType('note-txt', $event)" ref="txt" title="Text Note" src="/img/keep/text.png">
                         <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="/img/keep/todo.png">
@@ -28,6 +32,14 @@ export default {
                     <img class="keep-trash" @click="clearAll" title="Clear All" src="/img/keep/trash.png">
                     
                 </div>
+                <!-- <div class="icons-container-mobile">
+                    <img @click="changeCurrType('note-txt', $event)" ref="txt" title="Text Note" src="/img/keep/text.png">
+                    <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="/img/keep/todo.png">
+                    <img @click="changeCurrType('note-img', $event)" title="Image Note" src="/img/keep/image.png">
+                    <img @click="changeCurrType('note-video', $event)" title="Video Note" src="/img/keep/video.png">
+                    <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png">
+                    <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png">
+                </div> -->
                 
             </div>
             <h1>Pinned Notes:</h1>
