@@ -1,4 +1,3 @@
-
 import utilService from '/js/service/util-service.js'
 
 export default {
@@ -8,8 +7,8 @@ export default {
     <section class="note-section note-img flex flex-col space-between">
     <img class="img-toshow" :src="note.content"/>
         <div class="edit-nav grid">
-            <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
-            <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
+            <img title="Pin" v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
+            <img title="un-pin" v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
             <div>
                 <label class="label-pic-color">
                     <img src="/img/keep/colors.png">
@@ -17,10 +16,10 @@ export default {
                 </label>
             </div>
 
-            <img src="/img/keep/check.png"/>
-            <img src="/img/keep/edit.png"/>
-            <img @click="onCopyIconClick" src="/img/keep/copy.png"/>
-            <img @click="onTrashIconClick" src="/img/keep/trash.png"/>
+            <img title="Save" src="/img/keep/check.png"/>
+            <img title="Edit" src="/img/keep/edit.png"/>
+            <img title="Copy" @click="onCopyIconClick" src="/img/keep/copy.png"/>
+            <img title="Remove" @click="onTrashIconClick" src="/img/keep/trash.png"/>
 
         </div> 
     </section>
