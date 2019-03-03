@@ -27,21 +27,8 @@ export default {
         `,
     data() {
         return {
-            emails: null,
+            emails: emailService.getEmails(),
         }
-    },
-
-    created() {
-        this.emails = emailService.getEmails();
-        // console.log('register');
-        // ebusService.$on('removeEmailBus', email => {
-        //     console.log('fireed');
-
-        //     this.onRemoveEmail(email)
-        // });
-    },
-    destroyed() {
-        // ebusService.$off('removeEmailBus');
     },
     methods: {
         onRemoveEmail(email) {

@@ -54,7 +54,6 @@ function addEmail(email) {
 
 function removeEmail(emailId) {
     let idx = _getEmailIdxById(emailId);
-    if (idx === -1) return;
     gEmails.splice(idx, 1);
     utilService.saveToStorage(EMAILS_KEY, gEmails);
 

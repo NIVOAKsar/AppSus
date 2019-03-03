@@ -15,8 +15,9 @@
 <body>
     <div id="app" class="app flex flex-col">
         <nav-cmp></nav-cmp>
-
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
 
         <footer-cmp></footer-cmp>
 

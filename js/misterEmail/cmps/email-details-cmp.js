@@ -53,7 +53,12 @@ export default {
             this.$router.push('/email-sus/email-inbox');
         },
         onRemoveClick(email) {
-            // ebusService.$emit('removeEmailBus', email)
+            if (!email.isRead) {
+                emailService.removeUnread();
+                ebusService.$emit('updateUnread');
+            }
+            emailService.removeEmail(email.id);
+            this.$router.push('/email-sus/email-inbox');
 
         }
     },
