@@ -57,7 +57,7 @@ export default {
             }
         },
         onRemoveClick(email) {
-            this.$emit('removeEmailEmit', email)
+            this.$emit('removeEmailEmit', email);
         },
         onMarkClick(email) {
             this.$emit('toggleMark', email)

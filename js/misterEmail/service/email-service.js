@@ -137,11 +137,31 @@ function _getSentIdxById(emailId) {
 }
 
 function getEmailsSent() {
-    return gEmailsSent;;
+    return gEmailsSent;
 }
 
 /*************** EMAIL TRASH ****************/
 
+function removeTrashEmail() {
+
+}
+
+function moveToTrash(emailId) {
+    let idx = _getEmailIdxById(emailId);
+    console.log(idx)
+    gEmailsTrash.push(gEmails.splice(idx, 1));
+    console.log(gEmails.splice(idx, 1))
+    utilService.saveToStorage(EMAILS_KEY, gEmails);
+    utilService.saveToStorage(TRASH_KEY, gEmailsTrash);
+}
+
+function restoreTrashEmail() {
+
+}
+
+function getTrashEmails() {
+    return gEmailsTrash;
+}
 
 /*************** UNREAD ****************/
 
@@ -189,5 +209,9 @@ export default {
     removeUnread,
     getUnread,
     mark,
-    unmark
+    unmark,
+    getTrashEmails,
+    moveToTrash,
+    removeTrashEmail,
+    restoreTrashEmail
 }
