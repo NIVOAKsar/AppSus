@@ -412,6 +412,7 @@ body {
     box-shadow: 1px 1px 11px black;
     width: 60%;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 .new-message-title,
@@ -753,11 +754,6 @@ body {
     .email-send {
         width: 100%;
         padding: 0;
-    }
-    .new-email {
-        box-shadow: 1px 1px 11px black;
-        width: 100%;
-        margin: 0;
     }
     .email-details {
         width: 100%;

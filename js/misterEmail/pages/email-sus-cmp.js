@@ -20,10 +20,10 @@ export default {
                         <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
                             <div @click="toggleHamburger">Sent</div>
                         </router-link>
-                        <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
+                        <!-- <router-link class="email-nav-link flex" exact to="/email-sus/email-starred">
                             <div @click="toggleHamburger">Starred</div>
-                        </router-link>
-                        <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
+                        </router-link> -->
+                        <router-link class="email-nav-link flex" exact to="/email-sus/email-trash">
                             <div @click="toggleHamburger">Trash</div>
                         </router-link>
                     </div>
@@ -34,17 +34,13 @@ export default {
         `,
     data() {
         return {
-            unread: null,
+            unread: emailService.getUnread(),
             isHamburgerOpen: false,
         }
     },
     created() {
         this.$router.push('/email-sus/email-inbox');
-        this.unread = emailService.getUnread();
         ebusService.$on('updateUnread', () => this.unread = emailService.getUnread());
-    },
-    destroyed() {
-        // ebusService.$off('updateUnread');
     },
     methods: {
         onCompose() {

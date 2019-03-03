@@ -14,7 +14,7 @@ export default {
                     <email-preview 
                         @click.native="onShowDetails(email.id)" 
                         @toggleMark="onToggleMark" 
-                        @removeEmailEmit="onRemoveEmail"
+                        @removeEmail="onRemoveEmail"
                         class="flex" 
                         :email="email">
                     </email-preview>
@@ -33,11 +33,11 @@ export default {
     methods: {
         onRemoveEmail(email) {
             if (!email.isRead) {
+                emailService.unmark(email.id);
                 emailService.removeUnread();
                 ebusService.$emit('updateUnread');
             }
-            emailService.moveToTrash(email.id);
-
+            emailService.addTrash(email.id);
             this.$router.push('/email-sus/email-inbox');
             this.emails = emailService.getEmails();
         },
@@ -45,12 +45,12 @@ export default {
             if (!email.isRead) {
                 emailService.unmark(email.id);
                 emailService.removeUnread();
-            } else {
+            }
+            else {
                 emailService.mark(email.id);
                 emailService.addUnread();
             }
             ebusService.$emit('updateUnread');
-            this.emails = emailService.getEmails();
         },
         onShowDetails(id) {
             this.$router.push('/email-sus/email-details/' + id);

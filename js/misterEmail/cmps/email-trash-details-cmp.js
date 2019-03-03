@@ -1,13 +1,12 @@
 import emailService from '../service/email-service.js';
-import ebusService from '/js/service/eventbus-service.js';
 
 export default {
 
     template: `
          <section class="email-details flex flex-col">
             <div class="email-details-nav self-start">
-                <button @click="backToSent" title="Back to sent"><img src="/img/arrow-left.png"></button>
-                <button @click.stop.prevent="onRemoveClick(email)" title="Remove"><img src="/img/trash.png"></button>
+                <button @click="onReturnIconClick" title="Back to sent"><img src="/img/arrow-left.png"></button>
+                <button @click.stop.prevent="onRemoveIconClick(email)" title="Remove"><img src="/img/trash.png"></button>
             </div>
             <div>
                 <hr>
@@ -46,13 +45,13 @@ export default {
     },
     created() {
         this.id = this.$route.params.id;
-        this.email = emailService.getEmailSentById(this.id);
+        this.email = emailService.getTrashEmailById(this.id);
     },
     methods: {
-        backToSent() {
-            this.$router.push('/email-sus/email-sent');
+        onReturnIconClick() {
+            this.$router.push('/email-sus/email-trash');
         },
-        onRemoveClick(email) {
+        onRemoveIconClick(email) {
             // ebusService.$emit('removeEmailBus', email)
 
         }
