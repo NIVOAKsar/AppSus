@@ -15,7 +15,7 @@ export default {
                     <div class="email-nav-links" :class="{open : isHamburgerOpen}">
                         <router-link class="flex space-between" exact to="/email-sus/email-inbox"> 
                             <div @click="toggleHamburger">Inbox </div>
-                            <div class="num-of-unread"> {{unread}}</div>
+                            <div v-show="unread > 0" class="num-of-unread"> {{unread}}</div>
                         </router-link>
                         <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
                             <div @click="toggleHamburger">Sent</div>

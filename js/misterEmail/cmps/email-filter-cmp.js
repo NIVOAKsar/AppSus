@@ -1,9 +1,8 @@
-import emailService from '../service/email-service.js';
+import ebusService from '/js/service/eventbus-service.js';
 
 export default {
     template: `
         <section class="email-filter flex justify-center">
-            <!-- <div class="filters-container">  -->
             <div class="email-search-container">
                 <button class="email-search" type="submit"><i class="fa fa-search"></i></button>
                 <input class="email-search" type="text" placeholder="Search mail"
@@ -16,8 +15,6 @@ export default {
                     <option value="read">Read</option>
                     <option value="unread">Unread</option>
                 </select>         
-
-            <!-- </div> -->
             
                 <select class="sort" @change="emitFilter" v-model="filterBy.sort">
                     <option value="none">Sort By</option>
@@ -36,6 +33,9 @@ export default {
                 sort: 'none'
             }
         }
+    },
+    created() {
+        ebusService.$on('updateFillter', () => this.emitFilter())
     },
     methods: {
         emitFilter() {

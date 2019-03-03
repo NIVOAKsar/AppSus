@@ -1,23 +1,5 @@
 import utilService from '/js/service/util-service.js';
 
-export default {
-    addEmail,
-    removeEmail,
-    getEmailById,
-    getEmails,
-    getEmailsFiltered,
-    addSent,
-    removeSent,
-    getEmailSentById,
-    getEmailsSent,
-    addUnread,
-    removeUnread,
-    getUnread,
-    mark,
-    unmark
-}
-
-
 const EMAILS_KEY = 'MAILS';
 const SENT_KEY = 'SENT';
 const UNREAD_KEY = 'UNREAD';
@@ -176,4 +158,21 @@ function unmark(emailId) {
     email.isRead = true;
     utilService.saveToStorage(EMAILS_KEY, gEmails);
 
+}
+
+export default {
+    addEmail,
+    removeEmail,
+    getEmailById,
+    getEmails,
+    getEmailsFiltered,
+    addSent,
+    removeSent,
+    getEmailSentById,
+    getEmailsSent,
+    addUnread,
+    removeUnread,
+    getUnread,
+    mark,
+    unmark
 }

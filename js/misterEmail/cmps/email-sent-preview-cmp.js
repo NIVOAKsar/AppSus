@@ -7,10 +7,18 @@ export default {
             <li @click.stop.prevent="onEmailClick(email)"
             class="email-preview clean-list flex space-between"
             :class="{isUnread:!email.isRead}">
-                <div class="preview-text flex space-between">
-                    <div class="preview-title">{{email.from}}</div>
-                    <div class="preview-subject">{{email.subject}} - <span class="preview-content">{{email.content}}</span></div>
-                    <div class="preview-time">{{email.sentAt}}</div>
+            <div class="preview-text flex">
+                    <img class="user-preview" src="/img/user.png">
+                    <div class="niv">
+                        <div class="niv2 flex">
+                            <div class="preview-title">{{email.from}}</div>
+                            <div class="preview-subject">{{email.subject}}
+                                <span v-if="emailContent"> - </span>
+                                <span class="preview-content">{{emailContent}}</span>
+                            </div>
+                            <div class="preview-time">{{email.sentAt}}</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="preview-btn-to-open flex">
@@ -28,7 +36,10 @@ export default {
         }
     },
     created() {
-
+        this.emailContent = this.email.content;
+        if (this.emailContent.length > 60) {
+            this.emailContent = this.emailContent.substring(0, 39) + '...';
+        }
     },
     methods: {
         onRemoveClick(email) {

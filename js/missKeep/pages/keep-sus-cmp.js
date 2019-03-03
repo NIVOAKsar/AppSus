@@ -16,6 +16,8 @@ export default {
                 </div>
 
                 <div class="choose-container flex space-around">
+
+                    <img class="select-menu" src="/img/keep/htree-dots.png">
                     
                     <input v-model.trim="currInput" @keyup.enter="onSubmit" placeholder="What's on your mind..."/>
                     
@@ -30,11 +32,28 @@ export default {
                     <img class="keep-trash" @click="clearAll" title="Clear All" src="/img/keep/trash.png">
                     
                 </div>
+                <!-- <div class="icons-container-mobile">
+                    <img @click="changeCurrType('note-txt', $event)" ref="txt" title="Text Note" src="/img/keep/text.png">
+                    <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="/img/keep/todo.png">
+                    <img @click="changeCurrType('note-img', $event)" title="Image Note" src="/img/keep/image.png">
+                    <img @click="changeCurrType('note-video', $event)" title="Video Note" src="/img/keep/video.png">
+                    <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png">
+                    <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png">
+                </div> -->
                 
             </div>
-            
+            <h1>Pinned Notes:</h1>
             <ul class="notes-container clean-list grid">
-                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in getNotes">
+                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in pinnedNotes">
+                    <component @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :is="note.type"></component> 
+                </li>
+            </ul>
+
+            <br/><br/><br/><br/>
+
+            <h1>Regular Notes:</h1>
+            <ul class="notes-container clean-list grid">
+                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in notes">
                     <component @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :is="note.type"></component> 
                 </li>
             </ul>
@@ -43,6 +62,7 @@ export default {
     data() {
         return {
             notes: noteService.getNotes(),
+            pinnedNotes: noteService.getPinnedNotes(),
             currInput: '',
             currType: 'note-txt',
             currIcon: ''
@@ -77,11 +97,6 @@ export default {
         changeBgColor(color, noteId) {
             noteService.setBgColor(color, noteId);
             this.notes = noteService.getNotes();
-        }
-    },
-    computed: {
-        getNotes() {
-            return this.notes;
         }
     },
     components: {
