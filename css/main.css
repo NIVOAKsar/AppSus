@@ -443,6 +443,7 @@ body {
     max-width: 980px;
     margin: 0 auto;
     align-items: flex-start;
+    justify-items: center;
 }
 
 .note {
@@ -520,7 +521,7 @@ body {
     .links-nav-container {
         display: flex;
         flex-direction: column;
-        height: 70%;
+        height: 75%;
         right: 3%;
     }
     .header-activity-grid {
