@@ -13,11 +13,11 @@ export default {
             <ul class="inbox-mails-container flex col-reverse">
                 <li class="email clean-list" v-for="email in emails" :key="email.id">
                     <email-sent-preview 
-                        @click.native="onShowDetails(email.id)" 
+                        @click.native="onShowDetails(email.id)"
                         @removeEmailEmit="onRemoveSent"
                         class="flex" 
                         :email="email">
-                        </email-sent-preview>
+                    </email-sent-preview>
                     <router-view></router-view>
                 </li>
             </ul>

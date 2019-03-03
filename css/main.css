@@ -173,7 +173,8 @@ body {
     background-color: rgb(245, 172, 55);
 }
 
-.email-inbox {
+.email-inbox,
+.email-sent {
     width: 75%;
     margin-top: 15px;
 }
@@ -301,6 +302,10 @@ body {
     text-align: left;
 }
 
+.details-main {
+    margin-left: 40px;
+}
+
 .email-details div button {
     cursor: pointer;
 }
@@ -417,11 +422,17 @@ body {
 .keep-search-container {
     margin-top: 20px;
     margin-bottom: 10px;
+    border: 1px solid black;
+    /* padding: 5px; */
 }
 
 .keep-search-container .keep-search {
     font-family: lato-reg;
     font-size: 1.2rem;
+}
+
+.keep-search {
+    border: none;
 }
 
 .notes-container {
@@ -498,7 +509,8 @@ body {
     .email-main {
         flex-direction: column;
     }
-    .email-inbox {
+    .email-inbox,
+    .email-sent {
         width: 100%;
     }
 }
@@ -512,8 +524,8 @@ body {
         right: 3%;
     }
     .header-activity-grid {
-        width: 8%;
-        height: auto;
+        width: 1.7rem;
+        height: 1.7rem;
         margin: 15px;
         padding: 0;
         cursor: pointer;
@@ -532,9 +544,9 @@ body {
     .email-sus {
         flex-direction: column;
     }
-    .nav-bar {}
     .email-title {
         justify-self: center;
+        margin-left: 15%;
     }
     .email-main {
         flex-direction: column;
@@ -584,7 +596,7 @@ body {
         border-radius: 50%;
         width: 54px;
         height: 54px;
-        background-color: rgb(247, 158, 15);
+        background-color: rgb(60, 120, 197);
         position: fixed;
         bottom: 20px;
         right: 10px;
