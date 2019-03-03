@@ -13,7 +13,7 @@ export default {
                         <div class="niv2 flex">
                             <div class="preview-title">{{email.from}}</div>
                             <div class="preview-subject">{{email.subject}}
-                                <span v-if="emailContent"> - </span>
+                                <!-- <span v-if="emailContent"> - </span> -->
                                 <span class="preview-content">{{emailContent}}</span>
                             </div>
                             <div class="preview-time">{{email.sentAt}}</div>

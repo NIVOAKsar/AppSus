@@ -33,7 +33,7 @@ export default {
     },
 
     created() {
-        this.emails = emailService.getEmailsSent();
+        this.emails = emailService.getTrashEmails();
     },
     methods: {
         onRemoveSent(email) {

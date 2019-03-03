@@ -129,6 +129,18 @@ body {
     padding: 0;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0
+}
+
 
 /******************** FOOTER **********************/
 
@@ -143,19 +155,12 @@ body {
 
 /*************************************** Home page ***************************************/
 
-
-/*************************************** email ***************************************/
-
 .home-links-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 30px;
     margin-top: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* grid-template-columns: repeat(3, minmax(150px, 1fr)); */
-    /* grid-template-rows: repeat(auto-fit, minmax(30px, 1fr)); */
-    /* grid-auto-rows: minmax(100px, auto); */
-    /* grid-template-rows: 100px 100px; */
 }
 
 .home-links-container a {
@@ -166,19 +171,56 @@ body {
     border-radius: 20px;
     padding: 20px;
     opacity: 0.5;
-   
 }
 
-.home-links-container a:hover{
+.home-links-container a:hover {
     transition: 0.4s ease;
-    color:rgb(20, 152, 192);
+    color: rgb(20, 152, 192);
     opacity: 1;
-    
 }
 
 .home-links-container img {
     width: 60px;
     height: 60px;
+}
+
+
+/************************************* About us **************************************/
+
+.wherewego {
+    width: 100%;
+}
+
+.about-us {
+    align-items: center;
+}
+
+.about-title {
+    font-family: concert-one-reg;
+}
+
+.about-container {
+    padding: 10px;
+}
+
+.about-person-container img {
+    background-size: cover;
+    background-position: center center;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+}
+
+.about-img-niv {
+    float: left
+}
+
+.about-img-shiri {
+    float: right;
+}
+
+.about {
+    /* text-align: left; */
 }
 
 
@@ -535,7 +577,7 @@ body {
 }
 
 .notes-container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     /* grid-auto-rows: minmax(200px, auto); */
     /* grid-template-rows: 100px 100px; */
     /* grid-template-columns: 60px 60px 60px 60px 60px; */
@@ -544,8 +586,11 @@ body {
     padding: 0;
     max-width: 980px;
     margin: 0 auto;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: baseline;
 }
 
 .note {
@@ -557,6 +602,7 @@ body {
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgb(66, 66, 66);
     font-family: lato-reg;
+    vertical-align: baseline;
 }
 
 .note-section {
@@ -634,6 +680,16 @@ body {
         padding: 0;
         cursor: pointer;
     }
+    /*************************************** Home page ***************************************/
+    .home-links-container {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .home-links-container a {
+        opacity: 1;
+        font-size: 1.3rem;
+    }
     /*************************************** email ***************************************/
     .hamburger {
         width: 9%;
@@ -644,6 +700,9 @@ body {
         float: left;
         position: fixed;
         top: 0;
+    }
+    .email-title h1 {
+        font-size: 1.5rem;
     }
     .email-sus {
         flex-direction: column;
@@ -672,6 +731,7 @@ body {
     .niv2 {
         flex-direction: column;
         margin-left: 5px;
+        margin-bottom: 10px;
     }
     .preview-title {
         margin: 0;
@@ -688,11 +748,17 @@ body {
         margin: 0;
         align-self: flex-end;
         margin: 10px;
+        order: -1;
+        position: absolute;
+    }
+    .email-preview {
+        position: relative;
     }
     .preview-btn-to-open {
-        order: -1;
         align-self: flex-end;
         position: absolute;
+        bottom: 0;
+        right: 0;
     }
     .email-preview button {
         margin: 0;
@@ -715,6 +781,9 @@ body {
     }
     .add-email span {
         display: none;
+    }
+    .email-nav {
+        margin-top: -30px;
     }
     .email-nav-links {
         background-color: rgb(236, 209, 165);
@@ -802,56 +871,4 @@ body {
     .icons-container-mobile.open {
         transform: translate(0, 0);
     } */
-}
-
-
-/***************** NIV ADDED *****************/
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
-
-.about-us{
-    align-items: center;
-}
-
-.about-container{
-    box-shadow: 0 30px 50px #a5d2e0;
-    background: linear-gradient(#a5d2e0,#63aee0);
-    background-color: red;
-    height: 40vh;
-    /* width: 100vw; */
-}
-
-.about-person-container{
-    /* padding-left: 100px; */
-    /* padding-right: 100px; */
-}
-
-.about-person-container div{
-    background-size: cover;
-    background-position: center center;
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    /* clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); */
-}
-.about-person-container p{
-    max-width: 20%;
-}
-
-.about-img-niv{
-    background-image: url('/img/niv.jpg');
-    
-}
-.about-img-shiri{
-    background-image: url('/img/shiri.jpeg');
-    
 }

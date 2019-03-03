@@ -8,12 +8,12 @@ export default {
             class="email-preview clean-list flex space-between"
             :class="{isUnread:!email.isRead}">
             <div class="preview-text flex">
-                    <img class="user-preview" src="/img/user.png">
-                    <div class="niv">
-                        <div class="niv2 flex">
-                            <div class="preview-title">{{email.from}}</div>
+                <img class="user-preview" src="/img/user.png">
+                <div class="niv">
+                    <div class="niv2 flex">
+                        <div class="preview-title">{{email.from}}</div>
                             <div class="preview-subject">{{email.subject}}
-                                <span v-if="emailContent"> - </span>
+                                <!-- <span v-if="emailContent"> - </span> -->
                                 <span class="preview-content">{{emailContent}}</span>
                             </div>
                             <div class="preview-time">{{email.sentAt}}</div>
