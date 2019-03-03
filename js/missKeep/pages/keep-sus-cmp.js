@@ -32,9 +32,18 @@ export default {
                 </div>
                 
             </div>
-            
+            <h1>Pinned Notes:</h1>
             <ul class="notes-container clean-list grid">
-                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in getNotes">
+                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in pinnedNotes">
+                    <component @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :is="note.type"></component> 
+                </li>
+            </ul>
+
+            <br/><br/><br/><br/>
+
+            <h1>Regular Notes:</h1>
+            <ul class="notes-container clean-list grid">
+                <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in notes">
                     <component @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :is="note.type"></component> 
                 </li>
             </ul>
@@ -43,6 +52,7 @@ export default {
     data() {
         return {
             notes: noteService.getNotes(),
+            pinnedNotes: noteService.getPinnedNotes(),
             currInput: '',
             currType: 'note-txt',
             currIcon: ''
@@ -77,11 +87,6 @@ export default {
         changeBgColor(color, noteId) {
             noteService.setBgColor(color, noteId);
             this.notes = noteService.getNotes();
-        }
-    },
-    computed: {
-        getNotes() {
-            return this.notes;
         }
     },
     components: {

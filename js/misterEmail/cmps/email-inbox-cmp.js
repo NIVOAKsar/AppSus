@@ -9,7 +9,6 @@ export default {
     template: `
         <section class="email-inbox">
             <email-filter @on-filtered="onFiltered"></email-filter>
-
             <ul class="inbox-mails-container flex col-reverse">
                 <li class="email clean-list" v-for="email in emails" :key="email.id">
                     <email-preview 

@@ -1,4 +1,4 @@
-import emailService from '../service/email-service.js';
+import ebusService from '/js/service/eventbus-service.js';
 
 
 export default {
@@ -40,9 +40,11 @@ export default {
         },
         onMarkClick(email) {
             this.$emit('toggleMark', email)
+            ebusService.$emit('updateFillter');
         },
         toggleBtns() {
             this.isPreviewBtns = !this.isPreviewBtns;
+
         }
     },
 
