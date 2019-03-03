@@ -17,7 +17,7 @@ export default {
                         @removeEmailEmit="onRemoveEmail"
                         class="flex" 
                         :email="email">
-                        </email-preview>
+                    </email-preview>
                     <router-view></router-view>
                 </li>
             </ul>
@@ -33,7 +33,6 @@ export default {
 
     created() {
         this.emails = emailService.getEmails();
-        console.log('register event');
 
         // this.emails = emailService.getEmails();
         // ebusService.$on('removeEmailBus', email => {

@@ -12,12 +12,19 @@ export default {
             <div>
                 <hr>
             </div>
-            <h1 class="subject-toshow">{{email.subject}}</h1>
-            <div class="details-header flex space-between">
-                <h1>{{email.from}}</h1>
-                <h1>{{email.sentAt}}</h1>
+
+            <h1 class="subject-toshow self-start">Subject: {{email.subject}}</h1>
+
+            <div>
+                <hr>
             </div>
-            <div class="details-main">
+            
+            <div class="details-header flex space-between">
+                <h1 class="from-toshow"><img src="/img/user.png"> {{email.from}}</h1>
+                <h1 class="date-toshow">{{email.sentAt}}</h1>
+             </div>
+
+             <div class="details-main">
                 <h1>{{email.content}}</h1>
             </div>
             <div>

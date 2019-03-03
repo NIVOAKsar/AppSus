@@ -80,7 +80,7 @@ export default {
                 </div>
             </router-link>
 
-            <router-link class-active="header-link" to="/email-sus">
+            <router-link class-active="header-link" to="/email-sus/email-inbox">
                 <div @click="onClick('email-title')" class="flex flex-col justify-center">
                     <span><img src="/img/mail-box.png" alt=""></span>
                     Email

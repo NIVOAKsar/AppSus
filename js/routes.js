@@ -22,17 +22,18 @@ const routes = [
         path: '/email-sus',
         component: emailSus,
         children: [{
-            path: 'email-inbox', component: emailInbox,
-            // children: [{
-            //     path: ':emailId',
-            //     component: emailSent
+                path: 'email-inbox',
+                component: emailInbox,
+                // children: [{
+                //     path: ':emailId',
+                //     component: emailSent
 
-            // }]
-        },
-        { path: 'email-sent', component: emailSent },
-        { path: 'email-details/:id', component: emailDetails },
-        { path: 'email-sent-details/:id', component: emailSentDetails },
-        { path: 'email-send', component: emailSend }
+                // }]
+            },
+            { path: 'email-sent', component: emailSent },
+            { path: 'email-details/:id', component: emailDetails },
+            { path: 'email-sent-details/:id', component: emailSentDetails },
+            { path: 'email-send', component: emailSend }
         ]
     },
 
