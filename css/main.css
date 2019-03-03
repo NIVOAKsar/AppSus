@@ -26,6 +26,7 @@ body {
 
 .email-sus {
     flex: 1;
+    margin-top: 10px
 }
 
 
@@ -153,6 +154,7 @@ body {
     font-family: lato-reg;
     font-size: 1.1rem;
     padding: 10px;
+    background-color: rgb(243, 239, 239);
 }
 
 .email-nav a {
@@ -400,6 +402,7 @@ body {
 }
 
 .icons-container {
+    display: block;
     align-self: center;
     align-items: center;
 }
@@ -496,7 +499,7 @@ body {
     margin-top: 10px;
 }
 
-.note-img img {
+.note-img .img-toshow {
     object-fit: cover;
     max-width: 70%;
     height: auto;
@@ -510,15 +513,10 @@ body {
 }
 
 .edit-nav div input {
-    /* width: 100%;
-    height: 100%; */
+    position: absolute;
+    visibility: hidden;
     cursor: pointer;
 }
-
-
-/* .img-color {
-    position: fixed;
-} */
 
 
 /************************************** Change size **********************************/
@@ -771,7 +769,7 @@ body {
         align-self: center;
     }
     .icons-container {
-        display: flex;
+        display: none;
     }
     .icons-container-mobile img {
         width: 30px;
@@ -780,10 +778,23 @@ body {
         cursor: pointer;
         opacity: 0.5;
     }
+
+
+.icons-container-mobile {
+        display: block;
+    }
+    /* .icons-container-mobile {
+        background-color: rgb(236, 209, 165);
+        box-shadow: 1px 1px 7px rgb(122, 120, 120);
+        transform: translate(-350px, 0);
+        transition: transform 0.3s ease;
+    }
+    .icons-container-mobile.open {
+        transform: translate(0, 0);
+    } */
 }
 
 /***************** NIV ADDED *****************/
-
 .delete-todo:hover{
     cursor: pointer;
 }

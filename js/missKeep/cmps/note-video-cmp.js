@@ -19,12 +19,14 @@ export default {
       
         <div class="edit-nav grid">
 
-          <img src="/img/keep/pin.png">
-          <img src="/img/keep/check.png">
+          <img src="/img/keep/pin.png"> 
           <div>
-            <input @change="onChangeBgColor" type="color">
-            <!-- <img src="/img/keep/colors.png"> -->
+                <label class="label-pic-color"><img src="/img/keep/colors.png">
+                <input @change="onChangeBgColor" type="color">
+                </label>
+                <!-- <img class="img-color" src="/img/keep/colors.png"> -->
           </div>
+          <img src="/img/keep/check.png">
           <img src="/img/keep/edit.png">
           <img @click="onCopy" src="/img/keep/copy.png">
           <img @click="onRemoveClick" src="/img/keep/trash.png">

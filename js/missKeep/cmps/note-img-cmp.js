@@ -5,12 +5,14 @@ export default {
     type: 'note-img',
     template: `
     <section class="note-section note-img flex flex-col space-between">
-        <img :src="note.content"/>
+        <img class="img-toshow" :src="note.content"/>
         <div class="edit-nav grid">
             <img v-if="!isPinned" @click="onPinClick" src="/img/keep/pin.png"/>
             <img v-else @click="onUnpinClick" src="/img/keep/unpin.png"/>
             <div>
+                <label class="label-pic-color"><img src="/img/keep/colors.png">
                 <input @change="onChangeBgColor" type="color">
+                </label>
                 <!-- <img class="img-color" src="/img/keep/colors.png"> -->
             </div>
             <img src="/img/keep/check.png"/>

@@ -70,7 +70,7 @@ function unpinNote(noteId) {
     utilService.saveToStorage(NOTES_KEY, gNotes);
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
-function updateNote(noteId, content) {
+function updatePinnedNote(noteId, content) {
     let note = getPinnedNoteById(noteId);
     note.content = content;
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
@@ -131,6 +131,7 @@ export default {
     removePinnedNote,
     pinNote,
     unpinNote,
+    updatePinnedNote,
     getPinnedNotes,
     clearAllNotes,
     setBgColor

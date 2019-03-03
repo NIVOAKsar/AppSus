@@ -11,7 +11,10 @@ export default {
             <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
             <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
             <div>
-                <input @change="onPaintIconClick" type="color">
+                <label class="label-pic-color">
+                    <img src="/img/keep/colors.png">
+                    <input @change="onPaintIconClick" type="color">
+                </label>
             </div>
 
             <img @click="onSubmitIconClick" src="/img/keep/check.png"/>
