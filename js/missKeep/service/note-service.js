@@ -55,14 +55,19 @@ function getNotes() {
 
 function pinNote(noteId) {
     let idx = getNoteIdxById(noteId);
-    gPinnedNotes.push(gNotes.splice(idx, 1));
+    gPinnedNotes.push(gNotes.splice(idx, 1)[0]);
     utilService.saveToStorage(NOTES_KEY, gNotes);
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
 function unpinNote(noteId) {
     let idx = getPinnedNoteIdxById(noteId);
-    gNotes.push(gPinnedNotes.splice(idx, 1));
+    gNotes.push(gPinnedNotes.splice(idx, 1)[0]);
     utilService.saveToStorage(NOTES_KEY, gNotes);
+    utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
+}
+function removePinnedNote(noteId) {
+    let idx = getPinnedNoteIdxById(noteId);
+    gPinnedNotes.splice(idx, 1);
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
 function getPinnedNoteById(noteId) {
@@ -109,6 +114,7 @@ export default {
     addNote,
     removeNote,
     getNotes,
+    removePinnedNote,
     pinNote,
     unpinNote,
     getPinnedNotes,
