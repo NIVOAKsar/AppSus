@@ -54,7 +54,7 @@ export default {
             <h1>Regular Notes:</h1>
             <ul class="notes-container clean-list grid">
                 <li class="note" :style="{backgroundColor : note.bgColor}" v-for="note in notes">
-                    <component @pinNote="onPinNote" @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :isPinned="false" :is="note.type"></component> 
+                    <component @updateNote="onUpdateNote" @pinNote="onPinNote" @changeBgColor="changeBgColor" @removeNote="onRemoveNote" :note="note" :isPinned="false" :is="note.type"></component> 
                 </li>
             </ul>
             
@@ -73,6 +73,8 @@ export default {
         this.currIcon.style.opacity = 1;
     },
     methods: {
+        /*********************** NOTE ***********************/
+
         onSubmit() {
             noteService.addNote(this.currInput, this.currType);
             this.notes = noteService.getNotes();
@@ -83,20 +85,36 @@ export default {
             this.notes = noteService.getNotes();
             this.pinnedNotes = noteService.getPinnedNotes();
         },
-        onUnpinNote(noteId) {
-            noteService.unpinNote(noteId);
+        onUpdateNote(noteId, content) {
+            noteService.updateNote(noteId, content);
             this.notes = noteService.getNotes();
-            this.pinnedNotes = noteService.getPinnedNotes();
         },
+
         onRemoveNote(noteId) {
             noteService.removeNote(noteId);
             this.notes = noteService.getNotes();
             console.log(this.notes);
         },
+        changeBgColor(color, noteId) {
+            noteService.setBgColor(color, noteId);
+            this.notes = noteService.getNotes();
+        },
+
+        /*********************** PINNED NOTE ***********************/
+        onUnpinNote(noteId) {
+            noteService.unpinNote(noteId);
+            this.notes = noteService.getNotes();
+            this.pinnedNotes = noteService.getPinnedNotes();
+        },
+        onUpdatePinNote() {
+
+        },
         onRemovePinnedNote(noteId) {
             noteService.removePinnedNote(noteId);
             this.pinnedNotes = noteService.getPinnedNotes();
         },
+
+        /*********************** OTHER ***********************/
         clearAll() {
             if (confirm('Are you sure you want to delete all notes???')) {
                 noteService.clearAllNotes();
@@ -104,16 +122,14 @@ export default {
                 this.pinnedNotes = noteService.getPinnedNotes();
             }
         },
-        changeBgColor(color, noteId) {
-            noteService.setBgColor(color, noteId);
-            this.notes = noteService.getNotes();
-        },
+
         changeCurrType(type, ev) {
             this.currType = type;
             this.currIcon.style.opacity = 0.5;
             this.currIcon = ev.target;
             this.currIcon.style.opacity = 1;
         },
+
 
     },
     components: {

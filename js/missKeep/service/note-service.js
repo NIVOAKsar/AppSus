@@ -41,6 +41,11 @@ function removeNote(noteId) {
     gNotes.splice(idx, 1);
     utilService.saveToStorage(NOTES_KEY, gNotes);
 }
+function updateNote(noteId, content) {
+    let note = getNoteById(noteId);
+    note.content = content;
+    utilService.saveToStorage(NOTES_KEY, gNotes);
+}
 function getNoteById(noteId) {
     return gNotes.find(note => note.id === noteId);
 }
@@ -65,6 +70,11 @@ function unpinNote(noteId) {
     utilService.saveToStorage(NOTES_KEY, gNotes);
     utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
 }
+function updateNote(noteId, content) {
+    let note = getPinnedNoteById(noteId);
+    note.content = content;
+    utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
+}
 function removePinnedNote(noteId) {
     let idx = getPinnedNoteIdxById(noteId);
     gPinnedNotes.splice(idx, 1);
@@ -80,8 +90,11 @@ function getPinnedNotes() {
     return gPinnedNotes;
 }
 
+/*********************** TODO NOTE ***********************/
+
 
 /*********************** OTHER ***********************/
+
 function clearAllNotes() {
     gNotes = [];
     gPinnedNotes = [];
@@ -113,6 +126,7 @@ function _convertContent(content, type) {
 export default {
     addNote,
     removeNote,
+    updateNote,
     getNotes,
     removePinnedNote,
     pinNote,

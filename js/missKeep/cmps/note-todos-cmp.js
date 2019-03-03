@@ -56,24 +56,23 @@ export default {
     type: 'note-todos',
     template: `
     <section class="note-section note-todos flex flex-col space-between">
-        
-        <ul v-for="(item, index) in note.content">
+        <ul v-for="(todo, index) in note.content">
              <li>
-                <div @click="onClick" class="on-edit-text" v-show="!isEditMode">{{item}}</div>
-                <textarea ref="textArea" class="edit-text" v-model="items[index]" v-show="isEditMode">{{item}}</textarea>
+                <div @click="onEditIconClick" class="on-edit-text" v-show="!isEditMode">{{todo}}</div>
+                <textarea ref="textArea" class="edit-text" v-model="todos[index]" v-show="isEditMode">{{todo}}</textarea>   
+                <span class="delete-todo">❌</span>
             </li>
         </ul>
         <div class="edit-nav grid">
-            <img v-if="!isPinned" @click="onPinClick" src="/img/keep/pin.png"/>
-            <img v-else @click="onUnpinClick" src="/img/keep/unpin.png"/>
+            <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
+            <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
             <div>
-                <input @change="onChangeBgColor" type="color">
-                <!-- <img class="img-color" src="/img/keep/colors.png"> -->
+                <input @change="onPaintIconClick" type="color">
             </div>
-            <img @click="isEditMode = false" src="/img/keep/check.png"/>
-            <img @click="isEditMode = true" src="/img/keep/edit.png"/>
-            <img @click="onCopy" src="/img/keep/copy.png"/>
-            <img @click="onRemoveClick" src="/img/keep/trash.png"/>
+            <img @click="onSubmitIconClick" src="/img/keep/check.png"/>
+            <img @click="onEditIconClick" src="/img/keep/edit.png"/>
+            <img @click="onCopyIconClick" src="/img/keep/copy.png"/>
+            <img @click="onTrashIconClick" src="/img/keep/trash.png"/>
 
         </div> 
 
@@ -81,32 +80,36 @@ export default {
     `,
     data() {
         return {
-            items: '',
+            todos: '',
             isEditMode: false,
         }
     },
     created() {
-        this.items = this.note.content;
+        this.todos = this.note.content;
     },
     methods: {
-        onRemoveClick() {
+        onTrashIconClick() {
             this.$emit('removeNote', this.note.id);
         },
-        onCopy() {
+        onCopyIconClick() {
             utilService.copyStringToClipboard(this.note.content)
         },
-        onClick() {
-            this.isEditMode = true;
-            // setTimeout(() => this.$refs.textArea.focus());
-        },
-        onChangeBgColor(ev) {
+        onPaintIconClick(ev) {
             this.$emit('changeBgColor', ev.target.value, this.note.id);
         },
-        onPinClick() {
+        onPinIconClick() {
             this.$emit('pinNote', this.note.id);
         },
-        onUnpinClick() {
+        onUnpinIconClick() {
             this.$emit('unpinNote', this.note.id);
-        }
+        },
+        onEditIconClick() {
+            this.isEditMode = true
+        },
+        onSubmitIconClick() {
+            this.isEditMode = false;
+            this.$emit('updateNote', this.note.id, this.todos);
+        },
+
     },
 }

@@ -5,19 +5,19 @@ export default {
     type: 'note-txt',
     template: `
     <section class="note-section note-txt flex flex-col space-between">
-        <div @click="onClick" class="on-edit-text" v-show="!isEditMode">{{note.content}}</div>
-        <textarea ref="textArea" @blur="onBlur" class="edit-text" v-show="isEditMode" v-model="content">{{content}}</textarea>
+        <div @click="onEditIconClick" class="on-edit-text" v-show="!isEditMode">{{note.content}}</div>
+        <textarea ref="textArea" @blur="onSubmitIconClick" class="edit-text" v-show="isEditMode" v-model="content">{{content}}</textarea>
         <div class="edit-nav grid">
-            <img v-if="!isPinned" @click="onPinClick" src="/img/keep/pin.png"/>
-            <img v-else @click="onUnpinClick" src="/img/keep/unpin.png"/>
+            <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
+            <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
             <div>
-                <input @change="onChangeBgColor" type="color">
-                <!-- <img class="img-color" src="/img/keep/colors.png"> -->
+                <input @change="onPaintIconClick" type="color">
             </div>
-            <img @click="isEditMode = false" src="/img/keep/check.png"/>
-            <img @click="isEditMode = true" src="/img/keep/edit.png"/>
-            <img @click="onCopy" src="/img/keep/copy.png"/>
-            <img @click="onRemoveClick" src="/img/keep/trash.png"/>
+
+            <img @click="onSubmitIconClick" src="/img/keep/check.png"/>
+            <img @click="onEditIconClick" src="/img/keep/edit.png"/>
+            <img @click="onCopyIconClick" src="/img/keep/copy.png"/>
+            <img @click="onTrashIconClick" src="/img/keep/trash.png"/>
 
         </div> 
     </section>
@@ -29,27 +29,28 @@ export default {
         }
     },
     methods: {
-        onRemoveClick() {
+        onTrashIconClick() {
             this.$emit('removeNote', this.note.id);
         },
-        onCopy() {
+        onCopyIconClick() {
             utilService.copyStringToClipboard(this.note.content)
         },
-        onChangeBgColor(ev) {
+        onPaintIconClick(ev) {
             this.$emit('changeBgColor', ev.target.value, this.note.id);
         },
-        onBlur() {
-            this.isEditMode = false;
-        },
-        onClick() {
-            this.isEditMode = true;
-            setTimeout(() => this.$refs.textArea.focus());
-        },
-        onPinClick() {
+        onPinIconClick() {
             this.$emit('pinNote', this.note.id);
         },
-        onUnpinClick() {
+        onUnpinIconClick() {
             this.$emit('unpinNote', this.note.id);
-        }
+        },
+        onEditIconClick() {
+            this.isEditMode = true
+            setTimeout(() => this.$refs.textArea.focus());
+        },
+        onSubmitIconClick() {
+            this.isEditMode = false;
+            this.$emit('updateNote', this.note.id, this.content);
+        },
     },
 }
