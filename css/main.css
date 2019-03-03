@@ -288,7 +288,8 @@ body {
 }
 
 .email-inbox,
-.email-sent {
+.email-sent,
+.email-trash {
     width: 75%;
     margin-top: 15px;
 }
@@ -454,6 +455,7 @@ body {
     box-shadow: 1px 1px 11px black;
     width: 60%;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 .new-message-title,
@@ -577,7 +579,7 @@ body {
 }
 
 .notes-container {
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* grid-auto-rows: minmax(200px, auto); */
     /* grid-template-rows: 100px 100px; */
     /* grid-template-columns: 60px 60px 60px 60px 60px; */
@@ -586,11 +588,11 @@ body {
     padding: 0;
     max-width: 980px;
     margin: 0 auto;
-    /* align-items: flex-start; */
+    align-items: flex-start;
     justify-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    vertical-align: baseline;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* vertical-align: baseline; */
 }
 
 .note {
@@ -660,7 +662,8 @@ body {
         flex-direction: column;
     }
     .email-inbox,
-    .email-sent {
+    .email-sent,
+    .email-trash {
         width: 100%;
     }
 }
@@ -822,11 +825,6 @@ body {
     .email-send {
         width: 100%;
         padding: 0;
-    }
-    .new-email {
-        box-shadow: 1px 1px 11px black;
-        width: 100%;
-        margin: 0;
     }
     .email-details {
         width: 100%;

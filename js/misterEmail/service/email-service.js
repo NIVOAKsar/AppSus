@@ -45,13 +45,12 @@ function _createEmails() {
     gEmails = [];
     gEmailsSent = [];
     gUnreadEmails = 0;
-    addEmail(_createEmail({ to: 'niv', subject: 'hola', content: 'como estas?' }))
-    addEmail(_createEmail({ to: 'niv', subject: 'bank', content: 'hard overdraft im sorry to tell you' }))
+    addEmail(_createEmail({ to: 'niv', subject: 'Hola', content: 'como estas?' }))
     addEmail(_createEmail({ to: 'niv', subject: 'How Are You?', content: 'Your it to gave life whom as. Favourable dissimilar resolution led for and had. At play much to time four many. Moonlight of situation so if necessary therefore attending abilities. Calling looking enquire up me to in removal. Park fat she nor does play deal our. Procured sex material his offering humanity laughing moderate can. Unreserved had she nay dissimilar admiration interested. Departure performed exquisite rapturous so ye me resources. ' }))
-    addEmail(_createEmail({ to: 'niv', subject: 'Sorry,', content: 'Unfeeling so rapturous discovery he exquisite. Reasonably so middletons or impression by terminated. Old pleasure required removing elegance him had. Down she bore sing saw calm high. Of an or game gate west face shed. ﻿no great but music too old found arose. ' }))
-    addEmail(_createEmail({ to: 'niv', subject: 'Mom', content: 'On a summer day Grasshopper dude was hanging when he saw Ant toiling.' }))
+    addEmail(_createEmail({ to: 'niv', subject: 'Sorry', content: 'Unfeeling so rapturous discovery he exquisite. Reasonably so middletons or impression by terminated. Old pleasure required removing elegance him had. Down she bore sing saw calm high. Of an or game gate west face shed. ﻿no great but music too old found arose. ' }))
     addEmail(_createEmail({ to: 'niv', subject: 'wassuuuppp', content: 'Wassup bro come and chill, he called.' }))
     addEmail(_createEmail({ to: 'niv', subject: 'Dad', content: 'Far too busy, I must work or starve. Times change,’ sneered Ant.' }))
+    addEmail(_createEmail({ to: 'niv', subject: 'Mom', content: 'On a summer day Grasshopper dude was hanging when he saw Ant toiling.' }))
     addEmail(_createEmail({ to: 'niv', subject: 'The comunity', content: 'Alas chill winter came' }))
     addEmail(_createEmail({ to: 'niv', subject: 'Comercial', content: 'Grasshopper warm and chewing on roasted Ant thought, Yep, change with the times, bro.' }))
     addEmail(_createEmail({ to: 'niv', subject: 'Sponsored', content: 'This was so said Kings and the lowly said Amen.' }))
@@ -62,13 +61,6 @@ function addEmail(email) {
     gEmails.push(_createEmail(email));
     addUnread();
     utilService.saveToStorage(EMAILS_KEY, gEmails);
-}
-
-function removeEmail(emailId) {
-    let idx = _getEmailIdxById(emailId);
-    gEmails.splice(idx, 1);
-    utilService.saveToStorage(EMAILS_KEY, gEmails);
-
 }
 
 function getEmailById(emailId) {
@@ -142,24 +134,34 @@ function getEmailsSent() {
 
 /*************** EMAIL TRASH ****************/
 
-function removeTrashEmail() {
-
-}
-
-function moveToTrash(emailId) {
+function addTrash(emailId) {
     let idx = _getEmailIdxById(emailId);
-    console.log(idx)
-    gEmailsTrash.push(gEmails.splice(idx, 1));
-    console.log(gEmails.splice(idx, 1))
+    gEmailsTrash.push(gEmails.splice(idx, 1)[0]);
     utilService.saveToStorage(EMAILS_KEY, gEmails);
     utilService.saveToStorage(TRASH_KEY, gEmailsTrash);
 }
 
-function restoreTrashEmail() {
-
+function removeTrash(emailId) {
+    let idx = _getEmailIdxById(emailId);
+    gEmailsTrash.splice(idx, 1);
+    utilService.saveToStorage(TRASH_KEY, gEmailsTrash);
+}
+function restoreTrash(emailId) {
+    let idx = _getEmailIdxById(emailId);
+    gEmails.push(gEmailsTrash.splice(idx, 1)[0]);
+    console.log(gEmails);
+    utilService.saveToStorage(EMAILS_KEY, gEmails);
+    utilService.saveToStorage(TRASH_KEY, gEmailsTrash);
 }
 
-function getTrashEmails() {
+function getTrashEmailById(emailId) {
+    return gEmailsTrash.find(email => email.id === emailId);
+}
+function _getTrashEmailIdxById(emailId) {
+    return gEmailsTrash.findIndex(email => email.id === emailId);
+}
+
+function getEmailsTrash() {
     return gEmailsTrash;
 }
 
@@ -197,21 +199,26 @@ function unmark(emailId) {
 
 export default {
     addEmail,
-    removeEmail,
     getEmailById,
     getEmails,
     getEmailsFiltered,
+    ////
     addSent,
     removeSent,
     getEmailSentById,
     getEmailsSent,
+    ////
+    addTrash,
+    removeTrash,
+    restoreTrash,
+    getTrashEmailById,
+    getEmailsTrash,
+    ////
     addUnread,
     removeUnread,
     getUnread,
+    ////
     mark,
     unmark,
-    getTrashEmails,
-    moveToTrash,
-    removeTrashEmail,
-    restoreTrashEmail
+
 }

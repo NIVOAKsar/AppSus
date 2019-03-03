@@ -17,37 +17,33 @@ import emailDetails from '/js/misterEmail/cmps/email-details-cmp.js';
 import emailSend from '/js/misterEmail/cmps/email-send-cmp.js';
 
 
-
 const routes = [
     { path: '/', component: home },
     { path: '/about', component: about },
 
     // ******************** mister Email *********************
-
     {
         path: '/email-sus',
         component: emailSus,
-        children: [{
-                path: 'email-inbox',
-                component: emailInbox,
-                // children: [{
-                //     path: ':emailId',
-                //     component: emailSent
+        children:
+            [
+                /******************** Inbox *********************/
+                { path: 'email-inbox', component: emailInbox },
+                { path: 'email-details/:id', component: emailDetails },
+                /******************** Sent *********************/
+                { path: 'email-sent', component: emailSent },
+                { path: 'email-sent-details/:id', component: emailSentDetails },
+                /******************** Trash *********************/
+                { path: 'email-trash', component: emailTrash },
+                { path: 'email-trash-details/:id', component: emailTrashDetails },
+                /******************** Send *********************/
+                { path: 'email-send', component: emailSend },
+                /******************** Starred *********************/
+                // { path: 'email-starred', component: emailStarred },
+                // { path: 'email-starred-details/:id', component: emailStarredDetails },
 
-                // }]
-            },
-            { path: 'email-sent', component: emailSent },
-            { path: 'email-trash', component: emailTrash },
-            // { path: 'email-starred', component: emailStarred },
-            { path: 'email-details/:id', component: emailDetails },
-            { path: 'email-sent-details/:id', component: emailSentDetails },
-            { path: 'email-trash-details/:id', component: emailTrashDetails },
-            // { path: 'email-sent-details/:id', component: emailStarredDetails },
-
-            { path: 'email-send', component: emailSend }
-        ]
+            ]
     },
-
 
     // ******************** miss keep *********************
 
