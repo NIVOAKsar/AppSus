@@ -20,6 +20,12 @@ export default {
                         <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
                             <div @click="toggleHamburger">Sent</div>
                         </router-link>
+                        <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
+                            <div @click="toggleHamburger">Starred</div>
+                        </router-link>
+                        <router-link class="email-nav-link flex" exact to="/email-sus/email-sent">
+                            <div @click="toggleHamburger">Trash</div>
+                        </router-link>
                     </div>
                 </div>
                 <router-view></router-view>

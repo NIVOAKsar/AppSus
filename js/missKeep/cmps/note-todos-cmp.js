@@ -67,7 +67,9 @@ export default {
             <img v-if="!isPinned" @click="onPinClick" src="/img/keep/pin.png"/>
             <img v-else @click="onUnpinClick" src="/img/keep/unpin.png"/>
             <div>
+                <label class="label-pic-color"><img src="/img/keep/colors.png">
                 <input @change="onChangeBgColor" type="color">
+                </label>
                 <!-- <img class="img-color" src="/img/keep/colors.png"> -->
             </div>
             <img @click="isEditMode = false" src="/img/keep/check.png"/>
