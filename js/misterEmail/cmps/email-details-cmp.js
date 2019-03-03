@@ -57,7 +57,7 @@ export default {
                 emailService.removeUnread();
                 ebusService.$emit('updateUnread');
             }
-            emailService.removeEmail(email.id);
+            emailService.addTrash(email.id);
             this.$router.push('/email-sus/email-inbox');
 
         }
