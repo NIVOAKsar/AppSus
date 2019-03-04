@@ -53,7 +53,8 @@ export default {
             this.$router.push('/email-sus/email-sent');
         },
         onRemoveClick(email) {
-            // ebusService.$emit('removeEmailBus', email)
+            emailService.removeSent(email.id);
+            this.$router.push('/email-sus/email-sent');
 
         }
     },

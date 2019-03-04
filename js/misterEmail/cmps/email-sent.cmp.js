@@ -43,7 +43,7 @@ export default {
             this.$router.push('/email-sus/email-sent-details/' + id);
         },
         onFiltered(filterBy) {
-            let filtered = emailService.getEmailsFiltered(filterBy);
+            let filtered = emailService.getEmailsSentFiltered(filterBy);
             this.emails = filtered;
         },
     },

@@ -20,8 +20,8 @@ export default {
 
                 <div class="preview-btn-to-open flex">
                     <div v-if="showButtons" class="preview-btns flex">
-                        <button @click.stop.prevent="onRemoveIconClick(email)" class="preview-remove" title="Remove"><img src="../../../img/trash.png"/></button>
-                        <button @click.stop.prevent="onRestoreIconClick(email)" class="preview-restore" title="Restore"><img src="../../../img/restore.png"/></button>
+                        <button @click.stop.prevent="onRemoveIconClick(email)" class="preview-remove" title="Remove"><img src="./img/trash.png"/></button>
+                        <button @click.stop.prevent="onRestoreIconClick(email)" class="preview-restore" title="Restore"><img src="./img/restore.png"/></button>
                     </div>
                     <button @click.stop.prevent="onElipsIconClick">...</button>
                 </div>

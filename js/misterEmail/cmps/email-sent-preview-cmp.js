@@ -21,7 +21,7 @@ export default {
 
                 <div class="preview-btn-to-open flex">
                     <div v-if="isPreviewBtns" class="preview-btns flex">
-                        <button @click.stop.prevent="onRemoveClick(email)" class="preview-remove" title="Remove"><img src="../../../img/trash.png"/></button>
+                        <button @click.stop.prevent="onRemoveClick(email)" class="preview-remove" title="Remove"><img src="./img/trash.png"/></button>
                     </div>
 
                     <button @click.stop.prevent="toggleBtns">...</button>

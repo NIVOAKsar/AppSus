@@ -27,6 +27,27 @@ function _getQuery() {
     }
 }
 
+function _filter(filterBy, email) {
+    let show = true;
+    switch (filterBy.status) {
+        case 'read': if (!email.isRead) show = false; break;
+        case 'unread': if (email.isRead) show = false; break;
+    }
+    return !show ? false :
+        email.subject.includes(filterBy.txt) ||
+        email.content.includes(filterBy.txt) ||
+        email.from.includes(filterBy.txt) ||
+        email.to.includes(filterBy.txt);
+}
+
+function _sort(filterBy, filteredMail) {
+    switch (filterBy.sort) {
+        case 'title': return utilService.sortEmailBySubject(filteredMail); break;
+        case 'date': return utilService.sortEmailByDate(filteredMail); break;
+        default: return filteredMail;
+    }
+}
+
 /*************** EMAIL ****************/
 
 function _createEmail(email) {
@@ -77,34 +98,11 @@ function getEmails() {
 }
 
 function getEmailsFiltered(filterBy) {
-    let ftd = gEmails.filter(email => {
-        let show = true;
-        switch (filterBy.status) {
-            case 'read':
-                if (!email.isRead) show = false;
-                break;
-            case 'unread':
-                if (email.isRead) show = false;
-                break;
-        }
-        return !show ? false : email.subject.includes(filterBy.txt) ||
-            email.content.includes(filterBy.txt) ||
-            email.from.includes(filterBy.txt) ||
-            email.to.includes(filterBy.txt);
-    });
-
-    switch (filterBy.sort) {
-        case 'title':
-            return utilService.sortEmailBySubject(ftd);
-            break;
-        case 'date':
-            return utilService.sortEmailByDate(ftd);
-            break;
-        default:
-            return ftd;
-    }
-
+    let ftd = gEmails.filter(email => _filter(filterBy, email));
+    return _sort(filterBy, ftd);
 }
+
+
 
 /*************** EMAIL SENT ****************/
 
@@ -131,6 +129,11 @@ function _getSentIdxById(emailId) {
 
 function getEmailsSent() {
     return gEmailsSent;
+}
+
+function getEmailsSentFiltered(filterBy) {
+    let ftd = gEmailsSent.filter(email => _filter(filterBy, email));
+    return _sort(filterBy, ftd);
 }
 
 /*************** EMAIL TRASH ****************/
@@ -164,6 +167,11 @@ function _getTrashEmailIdxById(emailId) {
 
 function getEmailsTrash() {
     return gEmailsTrash;
+}
+
+function getEmailsTrashFiltered(filterBy) {
+    let ftd = gEmailsTrash.filter(email => _filter(filterBy, email));
+    return _sort(filterBy, ftd);
 }
 
 /*************** UNREAD ****************/
@@ -208,12 +216,14 @@ export default {
     removeSent,
     getEmailSentById,
     getEmailsSent,
+    getEmailsSentFiltered,
     ////
     addTrash,
     removeTrash,
     restoreTrash,
     getTrashEmailById,
     getEmailsTrash,
+    getEmailsTrashFiltered,
     ////
     addUnread,
     removeUnread,
