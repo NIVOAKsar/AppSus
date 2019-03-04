@@ -1,4 +1,5 @@
-import utilService from '/js/service/util-service.js'
+import utilService from '../../service/util-service.js';
+
 
 export default {
     props: ['note', 'isPinned'],

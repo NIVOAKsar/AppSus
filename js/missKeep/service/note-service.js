@@ -1,4 +1,5 @@
-import utilService from '/js/service/util-service.js';
+import utilService from '../../service/util-service.js';
+
 
 const NOTES_KEY = 'NOTES';
 const PINNED_KEY = 'PINNED';
