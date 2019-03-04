@@ -1,6 +1,7 @@
 import utilService from '../../service/util-service.js';
 
 
+
 const NOTES_KEY = 'NOTES';
 const PINNED_KEY = 'PINNED';
 var gNotes = [];

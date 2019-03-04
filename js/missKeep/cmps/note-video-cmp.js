@@ -8,19 +8,19 @@ export default {
     <section class="note-section note-video flex flex-col space-between">
         <iframe :src=note.content frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="edit-nav grid">
-            <img v-if="!isPinned" @click="onPinIconClick" src="/img/keep/pin.png"/>
-            <img v-else @click="onUnpinIconClick" src="/img/keep/unpin.png"/>
+            <img v-if="!isPinned" @click="onPinIconClick" src="../../../img/keep/pin.png"/>
+            <img v-else @click="onUnpinIconClick" src="../../../img/keep/unpin.png"/>
             <div>
                 <label class="label-pic-color">
-                    <img src="/img/keep/colors.png">
+                    <img src="../../../img/keep/colors.png">
                     <input @change="onPaintIconClick" type="color">
                 </label>
             </div>
 
-            <img src="/img/keep/check.png"/>
-            <img src="/img/keep/edit.png"/>
-            <img @click="onCopyIconClick" src="/img/keep/copy.png"/>
-            <img @click="onTrashIconClick" src="/img/keep/trash.png"/>
+            <img src="../../../img/keep/check.png"/>
+            <img src="../../../img/keep/edit.png"/>
+            <img @click="onCopyIconClick" src="../../../img/keep/copy.png"/>
+            <img @click="onTrashIconClick" src="../../../img/keep/trash.png"/>
 
         </div> 
     </section>
