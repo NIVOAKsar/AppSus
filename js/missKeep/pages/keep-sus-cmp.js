@@ -29,8 +29,8 @@ export default {
                         <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="/img/keep/todo.png">
                         <img @click="changeCurrType('note-img', $event)" title="Image Note" src="/img/keep/image.png">
                         <img @click="changeCurrType('note-video', $event)" title="Video Note" src="/img/keep/video.png">
-                        <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png">
-                        <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png">
+                        <!-- <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png"> -->
+                        <!-- <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png"> -->
                     </div>
                     <img class="keep-trash" @click="clearAll" title="Clear All" src="/img/keep/trash.png">
                     
@@ -44,8 +44,8 @@ export default {
                     <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="/img/keep/todo.png">
                     <img @click="changeCurrType('note-img', $event)" title="Image Note" src="/img/keep/image.png">
                     <img @click="changeCurrType('note-video', $event)" title="Video Note" src="/img/keep/video.png">
-                    <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png">
-                    <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png">
+                    <!-- <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="/img/keep/audio.png"> -->
+                    <!-- <img @click="changeCurrType('note-map', $event)" title="Map Note" src="/img/keep/map.png"> -->
                 </div>
                 </transition>
                 

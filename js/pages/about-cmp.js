@@ -2,10 +2,10 @@ export default {
     template: `
         <section class="about-us flex flex-col">
 
-            <h1 class="about-title">Where We Go...</h1>
+            <h1 class="about-page-title">Where We Go...</h1>
             <img class="wherewego" src="/img/view.jpg">
 
-            <h1 class="about-title">Who We Are?!</h1>
+            <h1 class="about-page-title">Who We Are?!</h1>
             <div class="about-container flex align-center justify-center">
                 <div class="about-person-container flex space-around">
                     <div class="flex flex-col">
