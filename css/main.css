@@ -159,7 +159,7 @@ body {
     background-size: cover;
     height: 86%;
     background-position: center;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     background-image: url('../img/home.jpg');
