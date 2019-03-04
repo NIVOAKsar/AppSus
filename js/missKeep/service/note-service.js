@@ -1,4 +1,6 @@
-import utilService from '/js/service/util-service.js';
+import utilService from '../../service/util-service.js';
+
+
 
 const NOTES_KEY = 'NOTES';
 const PINNED_KEY = 'PINNED';
@@ -13,8 +15,7 @@ function _getQuery() {
         gNotes = utilService.loadFromStorage(NOTES_KEY);
         gPinnedNotes = utilService.loadFromStorage(PINNED_KEY)
     } else {
-        gNotes = [];
-        gPinnedNotes = [];
+        _createNotes();
         utilService.saveToStorage(NOTES_KEY, gNotes);
         utilService.saveToStorage(PINNED_KEY, gPinnedNotes);
     }
@@ -30,6 +31,17 @@ function _createNote(content, type) {
         content: content,
         bgColor: '#e7df97'
     }
+}
+
+function _createNotes() {
+    gNotes = [];
+    gPinnedNotes = [];
+    addNote('lorem ipsum shmulik nuolllols', 'note-txt');
+    addNote('finish sprint 3, finish sprint 4, finish coding academy, learn angular', 'note-todos');
+    addNote('https://img.purch.com/h/1000/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA2OC8wOTUvb3JpZ2luYWwvZ2lyYWZmZS5qcGc=', 'note-img');
+    addNote('https://www.youtube.com/watch?v=vr0qNXmkUJ8', 'note-video');
+    addNote('Hello Worldddd', 'note-txt');
+    addNote('https://c402277.ssl.cf1.rackcdn.com/photos/11552/images/hero_small/rsz_namibia_will_burrard_lucas_wwf_us_1.jpg?1462219623', 'note-img');
 }
 
 function addNote(content, type) {

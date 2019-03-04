@@ -793,6 +793,10 @@ body {
         font-size: 1.7rem;
         z-index: 1;
     }
+    .new-email {
+        width: 100%;
+        margin: 0 auto;
+    }
     .add-email span {
         display: none;
     }

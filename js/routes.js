@@ -1,20 +1,20 @@
 import about from './pages/about-cmp.js'
 import home from './pages/home-cmp.js'
 
-import keepSus from '/js/missKeep/pages/keep-sus-cmp.js';
+import keepSus from './missKeep/pages/keep-sus-cmp.js';
 
-import emailSus from '/js/misterEmail/pages/email-sus-cmp.js';
-import emailInbox from '/js/misterEmail/cmps/email-inbox-cmp.js';
-import emailSent from '/js/misterEmail/cmps/email-sent.cmp.js';
-import emailTrash from '/js/misterEmail/cmps/email-trash-cmp.js';
+import emailSus from './misterEmail/pages/email-sus-cmp.js'
+import emailInbox from './misterEmail/cmps/email-inbox-cmp.js';
+import emailSent from './misterEmail/cmps/email-sent.cmp.js';
+import emailTrash from './misterEmail/cmps/email-trash-cmp.js';
 // import emailStarred from '/js/misterEmail/cmps/email-starred.cmp.js';
 
-import emailSentDetails from '/js/misterEmail/cmps/email-sent-details-cmp.js';
-import emailTrashDetails from '/js/misterEmail/cmps/email-trash-details-cmp.js';
+import emailSentDetails from './misterEmail/cmps/email-sent-details-cmp.js';
+import emailTrashDetails from './misterEmail/cmps/email-trash-details-cmp.js';
 // import emailStarredDetails from '/js/misterEmail/cmps/email-starred-details-cmp.js';
 
-import emailDetails from '/js/misterEmail/cmps/email-details-cmp.js';
-import emailSend from '/js/misterEmail/cmps/email-send-cmp.js';
+import emailDetails from './misterEmail/cmps/email-details-cmp.js';
+import emailSend from './misterEmail/cmps/email-send-cmp.js';
 
 
 const routes = [

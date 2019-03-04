@@ -1,4 +1,5 @@
-import ebusService from '/js/service/eventbus-service.js';
+import ebusService from '../../service/eventbus-service.js';
+
 
 export default {
     template: `

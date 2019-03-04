@@ -1,13 +1,14 @@
 import emailService from '../service/email-service.js';
-import ebusService from '/js/service/eventbus-service.js';
+import ebusService from '../../service/eventbus-service.js';
+
 
 export default {
 
     template: `
          <section class="email-details flex flex-col">
             <div class="email-details-nav self-start">
-                <button @click="backToInbox" title="Back to inbox"><img src="/img/arrow-left.png"></button>
-                <button @click.stop.prevent="onRemoveClick(email)" title="Remove"><img src="/img/trash.png"></button>
+                <button @click="backToInbox" title="Back to inbox"><img src="../../../img/arrow-left.png"/></button>
+                <button @click.stop.prevent="onRemoveClick(email)" title="Remove"><img src="../../../img/trash.png"/></button>
             </div>
             <div>
                 <hr>
@@ -20,7 +21,7 @@ export default {
             </div>
             
             <div class="details-header flex space-between">
-                <h1 class="from-toshow"><img src="/img/user.png"> {{email.from}}</h1>
+                <h1 class="from-toshow"><img src="../../../img/user.png"/> {{email.from}}</h1>
                 <h1 class="date-toshow">{{email.sentAt}}</h1>
              </div>
 
