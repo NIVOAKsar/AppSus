@@ -6,8 +6,7 @@ import ebusService from '../../service/eventbus-service.js';
 export default {
     template: `
         <section class="email-sus flex flex-col">
-            <img class="hamburger"
-            src="../../img/hamburger.png" @click="isHamburgerOpen = !isHamburgerOpen">
+            <img class="hamburger" src="./img/hamburger.png" @click="isHamburgerOpen = !isHamburgerOpen"/>
             
             
             <div class="email-main flex">
