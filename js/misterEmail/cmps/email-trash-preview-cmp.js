@@ -5,7 +5,7 @@ export default {
             <li class="email-preview clean-list flex space-between"
                 :class="{isUnread:!email.isRead}">
             <div class="preview-text flex">
-                    <img class="user-preview" src="../../../img/user.png"/>
+                    <img class="user-preview" src="./img/user.png"/>
                     <div class="niv">
                         <div class="niv2 flex">
                             <div class="preview-title">{{email.from}}</div>

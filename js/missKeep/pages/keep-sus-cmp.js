@@ -20,19 +20,19 @@ export default {
 
                 <div class="choose-container flex space-around">
 
-                    <img @click="show = !show" class="select-menu" src="../../../img/keep/htree-dots.png">
+                    <img @click="show = !show" class="select-menu" src="./img/keep/htree-dots.png">
                     
                     <input v-model.trim="currInput" @keyup.enter="onSubmit" placeholder="What's on your mind..."/>
                     
                     <div class="icons-container">
-                        <img @click="changeCurrType('note-txt', $event)" ref="txt" title="Text Note" src="../../../img/keep/text.png"/>
-                        <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="../../../img/keep/todo.png"/>
-                        <img @click="changeCurrType('note-img', $event)" title="Image Note" src="../../../img/keep/image.png"/>
-                        <img @click="changeCurrType('note-video', $event)" title="Video Note" src="../../../img/keep/video.png"/>
-                        <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="../../../img/keep/audio.png"/>
-                        <img @click="changeCurrType('note-map', $event)" title="Map Note" src="../../../img/keep/map.png"/>
+                        <img @click="changeCurrType('note-txt', $event)" ref="txt" title="Text Note" src="./img/keep/text.png"/>
+                        <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="./img/keep/todo.png"/>
+                        <img @click="changeCurrType('note-img', $event)" title="Image Note" src="./img/keep/image.png"/>
+                        <img @click="changeCurrType('note-video', $event)" title="Video Note" src="./img/keep/video.png"/>
+                        <!-- <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="./img/keep/audio.png"/> -->
+                        <!-- <img @click="changeCurrType('note-map', $event)" title="Map Note" src="./img/keep/map.png"/> -->
                     </div>
-                    <img class="keep-trash" @click="clearAll" title="Clear All" src="../../../img/keep/trash.png"/>
+                    <img class="keep-trash" @click="clearAll" title="Clear All" src="./img/keep/trash.png"/>
                     
                 </div>
                 <transition
@@ -40,12 +40,12 @@ export default {
                 enter-active-class="animated tada"
                 leave-active-class="animated bounceOutRight">
                 <div class="icons-container-mobile" v-if="show">
-                    <img @click="changeCurrType('note-txt', $event)" @load="initIcon" ref="txtMobile" title="Text Note" src="../../../img/keep/text.png"/>
-                    <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="../../../img/keep/todo.png"/>
-                        <img @click="changeCurrType('note-img', $event)" title="Image Note" src="../../../img/keep/image.png"/>
-                        <img @click="changeCurrType('note-video', $event)" title="Video Note" src="../../../img/keep/video.png"/>
-                        <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="../../../img/keep/audio.png"/>
-                        <img @click="changeCurrType('note-map', $event)" title="Map Note" src="../../../img/keep/map.png"/>
+                    <img @click="changeCurrType('note-txt', $event)" @load="initIcon" ref="txtMobile" title="Text Note" src="./img/keep/text.png"/>
+                    <img @click="changeCurrType('note-todos', $event)" title="Todo Note" src="./img/keep/todo.png"/>
+                        <img @click="changeCurrType('note-img', $event)" title="Image Note" src="./img/keep/image.png"/>
+                        <img @click="changeCurrType('note-video', $event)" title="Video Note" src="./img/keep/video.png"/>
+                        <!-- <img @click="changeCurrType('note-audio', $event)" title="Audio Note" src="./img/keep/audio.png"/> -->
+                        <!-- <img @click="changeCurrType('note-map', $event)" title="Map Note" src="./img/keep/map.png"/> -->
                 </div>
                 </transition>
                 
