@@ -6,8 +6,9 @@ import ebusService from '../service/eventbus-service.js';
 export default {
     template: `
 
-        <section class="home-page">
+        <section class="home-page flex flex-col">
 
+            <div class="img"></div>
 
             <div class="home-links-container flex space-between">
 

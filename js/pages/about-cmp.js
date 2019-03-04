@@ -15,7 +15,7 @@ export default {
                     <p class="about">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, harum accusantium! Ipsum sed ratione, ipsa perferendis vero tempore iusto commodi animi, tenetur, porro dolore quod voluptate eius. Eos, soluta ut?</p>
                 </div>
                 <div class="about-person-container flex space-around">
-                    <p class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dignissimos magnam repudiandae, dolorum sapiente quia vitae, temporibus cupiditate iste nam harum culpa. Quam deserunt provident sit iure. Placeat, dolor quaerat.</p>
+                    <p class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dignissimos magnam repudiandae, dolorum sapiente quia vitae, cupiditate iste nam harum culpa. Quam deserunt provident sit iure. Placeat, dolor quaerat.</p>
                     <div class="flex flex-col">
                         <img class="about-img-shiri" src="./img/shiri.jpeg">
                         <h1>Shiri Ron</h1>
