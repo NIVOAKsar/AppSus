@@ -34,17 +34,18 @@ export default {
         this.emails = emailService.getEmailsTrash();
     },
     methods: {
-        onShowDetails(id) {
-            this.$router.push('/email-sus/email-trash-details/' + id);
-        },
         onRemoveEmail(email) {
             emailService.removeTrash(email.id);
         },
         onRestoreEmail(email) {
             emailService.restoreTrash(email.id);
         },
-        onFiltered() {
-
+        onShowDetails(id) {
+            this.$router.push('/email-sus/email-trash-details/' + id);
+        },
+        onFiltered(filterBy) {
+            let filtered = emailService.getEmailsTrashFiltered(filterBy);
+            this.emails = filtered;
         }
 
     },

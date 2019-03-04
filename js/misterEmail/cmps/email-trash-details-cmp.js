@@ -52,7 +52,8 @@ export default {
             this.$router.push('/email-sus/email-trash');
         },
         onRemoveIconClick(email) {
-            // ebusService.$emit('removeEmailBus', email)
+            emailService.removeTrash(email.id);
+            this.$router.push('/email-sus/email-trash');
 
         }
     },
