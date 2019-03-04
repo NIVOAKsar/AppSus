@@ -1,5 +1,6 @@
-import navBarService from '/js/service/nav-bar-service.js';
-import ebusService from '/js/service/eventbus-service.js';
+import navBarService from '../service/nav-bar-service.js';
+import ebusService from '../service/eventbus-service.js';
+
 
 
 export default {

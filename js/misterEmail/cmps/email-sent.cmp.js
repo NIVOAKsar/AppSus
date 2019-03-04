@@ -2,7 +2,6 @@ import emailService from '../service/email-service.js';
 import emailFilter from '../cmps/email-filter-cmp.js';
 import emailSentPreview from '../cmps/email-sent-preview-cmp.js';
 import emailSentDetails from '../cmps/email-sent-details-cmp.js';
-import ebusService from '/js/service/eventbus-service.js';
 
 
 export default {

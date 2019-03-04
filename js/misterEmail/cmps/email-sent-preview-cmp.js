@@ -1,5 +1,3 @@
-import emailService from '../service/email-service.js';
-
 
 export default {
     props: ['email'],
