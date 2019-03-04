@@ -698,8 +698,9 @@ body {
     .links-nav-container {
         display: flex;
         flex-direction: column;
-        height: 75%;
+        height: auto;
         right: 3%;
+        padding: 0;
     }
     .header-activity-grid {
         width: 1.7rem;
